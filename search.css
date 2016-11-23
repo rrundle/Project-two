@@ -1,0 +1,114 @@
+body {
+  font-family: Lato;
+  font-weight: 300;
+}
+
+.logo {
+  width: 200px;
+  margin: 20px auto;
+}
+
+img {
+  width: 200px;
+  margin: 0 auto;
+}
+
+.content {
+  width: 75%;
+  margin: auto;
+}
+
+.input {
+  width: 75%;
+  margin: 30px auto 30px auto;
+  padding: 8px;
+  position: relative;
+  height: 35px;
+  font-size: 1.1em;
+}
+
+.label {
+  padding: 10px;
+  font-size: 1em;
+  color: #6E748D;
+}
+
+#search {
+  position: absolute;
+  left: 78%;
+  top: 227px;
+  background-color: #CF0814;
+  color: #FFFFFF;
+  padding: 10px;
+  border-radius: 4px;
+  width: 100px;
+  font-size: 1em;
+  text-align: center;
+}
+
+#search:hover {
+  background-color: #970711;
+  cursor: pointer;
+}
+
+#location {
+  padding: 10px;
+  font-size: 1em;
+  color: #6E748D;
+  margin-left: 12px;
+}
+
+.results {
+  margin: 50px 0px 30px 0px;
+  border-bottom: 1px solid gray;
+  padding: 30px 0px 10px 0px;
+}
+
+#list {
+  margin: 30px 0px 30px 0px;
+}
+
+#list.rating {
+  color: blue;
+}
+
+#list > div {
+  margin: 30px 0px 30px 0px;
+  border: 1px solid #D0D0D0;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+#list > div:hover {
+  background-color: #D0D0D0;
+  cursor: pointer;
+}
+
+#name {
+  font-size: 1.2em;
+  font-weight: bold;
+  position: relative;
+}
+
+#rating {
+  margin-left: 35%;
+  position: relative;
+  padding-right: 10%;
+}
+
+#distance {
+  padding-right: 15%;
+}
+
+#phone {
+  display: inline-block;
+  margin-bottom: 25px;
+}
+
+#review {
+  font-style: italic;
+}
+
+#rating {
+  text-align: right;
+}
