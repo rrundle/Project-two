@@ -64,42 +64,42 @@ zipSearch.setAttribute("disabled", true);
 //puting it inside a new div called business
 for (var i = 0; i < businesses.length; i++) {
   var business = document.createElement("div");
-  business.setAttribute("id", "business");
+  business.setAttribute("class", "business");
 
   var businessName = document.createElement("span");
-  businessName.setAttribute("id", "name");
+  businessName.setAttribute("class", "name");
   businessName.textContent = businesses[i].name;
   business.appendChild(businessName);
 
   var rating = document.createElement("span");
-  rating.setAttribute("id", "rating");
+  rating.setAttribute("class", "rating");
   rating.textContent = businesses[i].rating;
   business.appendChild(rating);
 
   var distance = document.createElement("span");
-  distance.setAttribute("id", "distance");
+  distance.setAttribute("class", "distance");
   distance.textContent = businesses[i].distance;
   business.appendChild(distance);
 
   var price = document.createElement("span");
-  price.setAttribute("id", "price");
+  price.setAttribute("class", "price");
   price.textContent = businesses[i].price;
   business.appendChild(price);
 
   var address = document.createElement("div");
-  address.setAttribute("id", "address");
+  address.setAttribute("class", "address");
   address.setAttribute("class", "contact");
   address.textContent = businesses[i].address;
   business.appendChild(address);
 
   var phone = document.createElement("div");
-  phone.setAttribute("id", "phone");
+  phone.setAttribute("class", "phone");
   phone.setAttribute("class", "contact");
   phone.textContent = businesses[i].phone;
   business.appendChild(phone);
 
   var review = document.createElement("div");
-  review.setAttribute("id", "review");
+  review.setAttribute("class", "review");
   review.textContent = businesses[i].review;
   business.appendChild(review);
 
@@ -109,7 +109,7 @@ for (var i = 0; i < businesses.length; i++) {
 
 //begin search code
 //declare variables that refence DOM elements
-var spots = document.getElementById("list");
+var results = document.getElementById("list");
 var term = document.getElementById("biz-search");
 var search = document.getElementById("search");
 var zip = document.getElementById("zip").textContent;
@@ -123,12 +123,12 @@ function empty(element) {
 }
 
 //declaring function to search for matching text
-function searchItems (allItems, theSearch) {
+function searchItems (allItems, searchVal) {
   var matchingItems = [];
   for (var i = 0; i < allItems.length; i++) {
     var item = allItems[i];
     var itemText = item.name + item.address + item.phone + item.rating + item.price + item.review + item.distance;
-    var isMatch = itemText.toLowerCase().indexOf(theSearch.toLowerCase()) > -1;
+    var isMatch = itemText.toLowerCase().indexOf(searchVal.toLowerCase()) > -1;
     if (isMatch) {
       matchingItems.push(item);
     }
@@ -137,27 +137,27 @@ function searchItems (allItems, theSearch) {
 }
 
 //declaring function for capturing search input on search button click, clearing the list div,
-//appending item to spots div
+//appending item to results div
 function listener () {
-  empty(spots);
-  var theSearch = term.value;
-  if (!theSearch.trim()) return;
-  var matchingItems = searchItems (businesses, theSearch);
+  empty(results);
+  var searchVal = term.value;
+  if (!searchVal.trim()) return;
+  var matchingItems = searchItems (businesses, searchVal);
   if (matchingItems.length === 0) {
     var noMatch = document.createElement("div");
     noMatch.setAttribute("id", "no-match");
     noMatch.textContent = "No results found.";
-    spots.appendChild(noMatch);
+    results.appendChild(noMatch);
   }
   for (var i = 0; i < matchingItems.length; i++) {
     var item = renderItem (matchingItems[i]);
-    spots.appendChild(item);
+    results.appendChild(item);
     }
   term.select();
 
   //changing the results list title when submit is fired
   function checkSearch () {
-    changeZipDisplay.textContent = "Search results for " + "'" + theSearch + "'" + " in " + zip;
+    changeZipDisplay.textContent = "Search results for " + "'" + searchVal + "'" + " in " + zip;
   }
   checkSearch();
 }
@@ -174,45 +174,45 @@ term.addEventListener('keypress', function (e) {
   })
 term.select();
 
-//assigning ids and classes to all search results
+//assigning classes to all search results
 //then appending then to the DOM
 function renderItem(item) {
 
   var biz = document.createElement("div");
-  biz.setAttribute("id", "business");
+  biz.setAttribute("class", "business");
 
   var businessName = document.createElement("span");
-  businessName.setAttribute("id", "name");
+  businessName.setAttribute("class", "name");
   businessName.textContent = item.name;
   biz.appendChild(businessName);
 
   var rating = document.createElement("span");
-  rating.setAttribute("id", "rating");
+  rating.setAttribute("class", "rating");
   rating.textContent = item.rating;
   biz.appendChild(rating);
 
   var distance = document.createElement("span");
-  distance.setAttribute("id", "distance");
+  distance.setAttribute("class", "distance");
   distance.textContent = item.distance;
   biz.appendChild(distance);
 
   var price = document.createElement("span");
-  price.setAttribute("id", "price");
+  price.setAttribute("class", "price");
   price.textContent = item.price;
   biz.appendChild(price);
 
   var address = document.createElement("div");
-  address.setAttribute("id", "address");
+  address.setAttribute("class", "address");
   address.textContent = item.address;
   biz.appendChild(address);
 
   var phone = document.createElement("div");
-  phone.setAttribute("id", "phone");
+  phone.setAttribute("class", "phone");
   phone.textContent = item.phone;
   biz.appendChild(phone);
 
   var review = document.createElement("div");
-  review.setAttribute("id", "review");
+  review.setAttribute("class", "review");
   review.textContent = item.review;
   biz.appendChild(review);
 
