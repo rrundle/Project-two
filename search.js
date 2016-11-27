@@ -112,8 +112,8 @@ for (var i = 0; i < businesses.length; i++) {
 var results = document.getElementById("list");
 var term = document.getElementById("biz-search");
 var search = document.getElementById("search");
-var zip = document.getElementById("zip").textContent;
 var changeZipDisplay = document.getElementById("results");
+var location = document.getElementById("location");
 
 //function to clear the list div when search submit button is fired
 function empty(element) {
@@ -122,13 +122,19 @@ function empty(element) {
   }
 }
 
-//declaring function to search for matching text
-function searchItems (allItems, searchVal) {
-  var matchingItems = [];
+// declaring global array
+var matchingItems = [];
+
+//variables for search values for business and location search boxes
+var searchVal = term.value;
+var locationVal = location.value;
+
+//declaring function to search for matching text in business search
+function searchItems (allItems, searchVal, locationVal) {
   for (var i = 0; i < allItems.length; i++) {
     var item = allItems[i];
     var itemText = item.name + item.address + item.phone + item.rating + item.price + item.review + item.distance;
-    var isMatch = itemText.toLowerCase().indexOf(searchVal.toLowerCase()) > -1;
+    var isMatch = itemText.toLowerCase().indexOf(searchVal.toLowerCase() + locationVal.toLowerCase()) > -1;
     if (isMatch) {
       matchingItems.push(item);
     }
@@ -136,13 +142,12 @@ function searchItems (allItems, searchVal) {
   return matchingItems;
 }
 
-//declaring function for capturing search input on search button click, clearing the list div,
+//declaring function for capturing search input for business on search button click, clearing the list div,
 //appending item to results div
 function listener () {
   empty(results);
-  var searchVal = term.value;
   if (!searchVal.trim()) return;
-  var matchingItems = searchItems (businesses, searchVal);
+  var matchingItems = searchItems (businesses, searchVal, locationVal);
   if (matchingItems.length === 0) {
     var noMatch = document.createElement("div");
     noMatch.setAttribute("id", "no-match");
@@ -154,18 +159,19 @@ function listener () {
     results.appendChild(item);
     }
   term.select();
-
-  //changing the results list title when submit is fired
-  function checkSearch () {
-    changeZipDisplay.textContent = "Search results for " + "'" + searchVal + "'" + " in " + zip;
-  }
   checkSearch();
 }
 
-//setting up listeners for listener function
-search.addEventListener("click", listener);
+  //changing the results list title when submit is fired
+function checkSearch () {
+  changeZipDisplay.textContent = "Search results for " + "'" + searchVal + "'" + " in " + locationVal;
+  }
 
-//listener for the enter button
+//setting up listeners for listener and locationListener functions
+search.addEventListener("click", listener);
+location.addEventListener("click", listener);
+
+//listeners for the enter button
 term.addEventListener('keypress', function (e) {
     var key = e.which || e.keyCode;
     if (key === 13) { // 13 is enter
