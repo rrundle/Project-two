@@ -256,7 +256,6 @@ function loadBusiness (businesses, id) {
 //event listener for click on any businesses
 content.addEventListener("click", function (e) {
   var clickEvent = e.target.className.indexOf("business");
-  console.log(clickEvent);
   if (clickEvent !== -1) {
     var id = e.target.getAttribute("id");
     loadBusiness(businesses, id);
@@ -265,7 +264,6 @@ content.addEventListener("click", function (e) {
 
 content.addEventListener("click", function (e) {
   var clickEvent = e.target.className.indexOf("name");
-  console.log(clickEvent);
   if (clickEvent !== -1) {
     var id = e.target.getAttribute("id");
     loadBusiness(businesses, id);
@@ -274,7 +272,6 @@ content.addEventListener("click", function (e) {
 
 content.addEventListener("click", function (e) {
   var clickEvent = e.target.className.indexOf("rating");
-  console.log(clickEvent);
   if (clickEvent !== -1) {
     var id = e.target.getAttribute("id");
     loadBusiness(businesses, id);
@@ -283,7 +280,6 @@ content.addEventListener("click", function (e) {
 
 content.addEventListener("click", function (e) {
   var clickEvent = e.target.className.indexOf("distance");
-  console.log(clickEvent);
   if (clickEvent !== -1) {
     var id = e.target.getAttribute("id");
     loadBusiness(businesses, id);
@@ -292,7 +288,6 @@ content.addEventListener("click", function (e) {
 
 content.addEventListener("click", function (e) {
   var clickEvent = e.target.className.indexOf("price");
-  console.log(clickEvent);
   if (clickEvent !== -1) {
     var id = e.target.getAttribute("id");
     loadBusiness(businesses, id);
@@ -301,7 +296,6 @@ content.addEventListener("click", function (e) {
 
 content.addEventListener("click", function (e) {
   var clickEvent = e.target.className.indexOf("address");
-  console.log(clickEvent);
   if (clickEvent !== -1) {
     var id = e.target.getAttribute("id");
     loadBusiness(businesses, id);
@@ -310,7 +304,6 @@ content.addEventListener("click", function (e) {
 
 content.addEventListener("click", function (e) {
   var clickEvent = e.target.className.indexOf("phone");
-  console.log(clickEvent);
   if (clickEvent !== -1) {
     var id = e.target.getAttribute("id");
     loadBusiness(businesses, id);
@@ -319,7 +312,6 @@ content.addEventListener("click", function (e) {
 
 content.addEventListener("click", function (e) {
   var clickEvent = e.target.className.indexOf("review");
-  console.log(clickEvent);
   if (clickEvent !== -1) {
     var id = e.target.getAttribute("id");
     loadBusiness(businesses, id);
@@ -355,26 +347,31 @@ function renderBusiness (item) {
 
   var businessName = document.createElement("div");
   businessName.setAttribute("class", "title");
+  businessName.setAttribute("id", item.id);
   businessName.textContent = item.name;
   content.appendChild(businessName);
 
   var distance = document.createElement("span");
   distance.setAttribute("class", "miles");
+  distance.setAttribute("id", item.id);
   distance.textContent = item.distance;
   businessName.appendChild(distance);
 
   var rating = document.createElement("div");
   rating.setAttribute("class", "stars");
+  rating.setAttribute("id", item.id);
   rating.textContent = item.rating;
   content.appendChild(rating);
 
   var price = document.createElement("span");
   price.setAttribute("class", "cost");
+  price.setAttribute("id", item.id);
   price.textContent = item.price;
   rating.appendChild(price);
 
   var writeReview = document.createElement("div");
   writeReview.setAttribute("class", "write");
+  writeReview.setAttribute("id", item.id);
   writeReview.textContent = "Write a review";
   content.appendChild(writeReview);
 
@@ -385,48 +382,132 @@ function renderBusiness (item) {
 
   var address = document.createElement("div");
   address.setAttribute("class", "local");
+  address.setAttribute("id", item.id);
   address.textContent = item.address;
   content.appendChild(address);
 
   var directionsHeader = document.createElement("div");
   directionsHeader.setAttribute("class", "biz-directions-header");
+  directionsHeader.setAttribute("id", item.id);
   directionsHeader.textContent = "Directions:";
   content.appendChild(directionsHeader);
 
   var directionsBox = document.createElement("div");
   directionsBox.setAttribute("class", "biz-directions");
+  directionsBox.setAttribute("id", item.id);
   content.appendChild(directionsBox);
 
   var directions = document.createElement("a");
   directions.setAttribute("href", "http://maps.google.com");
   directions.setAttribute("class", "directions");
+  directions.setAttribute("id", item.id);
   directions.textContent = "Get directions";
   directionsBox.appendChild(directions);
 
   var callHeader = document.createElement("div");
   callHeader.setAttribute("class", "biz-call-header");
+  callHeader.setAttribute("id", item.id);
   callHeader.textContent = "Call the business:";
   content.appendChild(callHeader);
 
   var callBox = document.createElement("div");
   callBox.setAttribute("class", "biz-call");
+  callBox.setAttribute("id", item.id);
   content.appendChild(callBox);
 
   var call = document.createElement("a");
   call.setAttribute("href", "tel:item.phone");
   call.setAttribute("class", "call");
+  call.setAttribute("id", item.id);
   call.textContent = "Call " + item.phone;
   callBox.appendChild(call);
 
   var reviewHeader = document.createElement("div");
   reviewHeader.setAttribute("class", "feedback-header");
+  reviewHeader.setAttribute("id", item.id);
   reviewHeader.textContent = "Reviews:";
   content.appendChild(reviewHeader);
 
   var review = document.createElement("div");
   review.setAttribute("class", "feedback");
+  review.setAttribute("id", item.id);
   review.textContent = '"' + item.review + '"';
   content.appendChild(review);
+
+  return content;
+}
+
+function loadReview (businesses, id) {
+  empty(content)
+  for (i = 0; i < businesses.length; i++) {
+    if (businesses[i].id == id) {
+      var results = renderReview(businesses[i]);
+      content.appendChild(results);
+    }
+  }
+}
+
+//event listener for click on any businesses
+content.addEventListener("click", function (e) {
+  var clickEvent = e.target.className.indexOf("write");
+  if (clickEvent !== -1) {
+    var id = e.target.getAttribute("id");
+    loadReview(businesses, id);
+  }
+});
+
+/*
+html setup
+*/
+
+function renderReview (item) {
+
+  var content = document.createElement("div");
+  content.setAttribute("class", "review-content");
+  content.setAttribute("id", item.id);
+
+  var businessName = document.createElement("div");
+  businessName.setAttribute("class", "title");
+  businessName.setAttribute("id", item.id);
+  businessName.textContent = item.name;
+  content.appendChild(businessName);
+
+  var close = document.createElement("div");
+  close.setAttribute("class", "close");
+  close.setAttribute("id", item.id);
+  close.textContent = "Close"
+  content.appendChild(close);
+
+  var postTitle = document.createElement("div");
+  postTitle.setAttribute("class", "post-title");
+  postTitle.setAttribute("id", item.id);
+  postTitle.textContent = "Post a Review";
+  content.appendChild(postTitle);
+
+  var post = document.createElement("div");
+  post.setAttribute("class", "post");
+  post.setAttribute("id", item.id);
+  post.textContent = "Post";
+  content.appendChild(post);
+
+  var reviewBox = document.createElement("div");
+  reviewBox.setAttribute("class", "review-box");
+  reviewBox.setAttribute("id", item.id);
+  content.appendChild(reviewBox);
+
+  var enterRating = document.createElement("input");
+  enterRating.setAttribute("type", "text");
+  enterRating.setAttribute("placeholder", "1 - 5");
+  enterRating.setAttribute("class", "enter-feedback");
+  enterRating.setAttribute("id", item.id);
+  enterRating.textContent = "Enter a rating";
+  reviewBox.appendChild(enterRating);
+
+  var reviewText = document.createElement("input");
+  reviewText.setAttribute("class", "feedback`-text");
+  enterRating.setAttribute("type", "text");
+  reviewText.setAttribute("id", item.id);
+  content.appendChild(reviewText);
 
   return content;
 }
