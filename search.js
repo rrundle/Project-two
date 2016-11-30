@@ -137,7 +137,7 @@ function empty(element) {
 }
 
 //declaring function to search for matching text
-function searchItems (allItems, searchVal) {
+function searchItems(allItems, searchVal) {
   var matchingItems = [];
   for (var i = 0; i < allItems.length; i++) {
     var item = allItems[i];
@@ -152,7 +152,7 @@ function searchItems (allItems, searchVal) {
 
 //declaring function for capturing search input on search button click, clearing the list div,
 //appending item to results div
-function listener () {
+function listener() {
   empty(list);
   var searchVal = term.value;
   if (!searchVal.trim()) return;
@@ -243,7 +243,7 @@ function renderItem(item) {
 //user can click on business from results to view it
 var content = document.querySelector(".content");
 
-function loadBusiness (businesses, id) {
+function loadBusiness(businesses, id) {
   empty(content)
   for (i = 0; i < businesses.length; i++) {
     if (businesses[i].id == id) {
@@ -254,77 +254,58 @@ function loadBusiness (businesses, id) {
 }
 
 //event listener for click on any businesses
-content.addEventListener("click", function (e) {
-  var clickEvent = e.target.className.indexOf("business");
-  console.log(clickEvent);
-  if (clickEvent !== -1) {
-    var id = e.target.getAttribute("id");
-    loadBusiness(businesses, id);
+var businessBox = document.getElementById("list");
+businessBox.addEventListener("click", function(e) {
+  var id = e.target.getAttribute("id");
+  var businessClick = e.target.className.indexOf("business");
+  console.log(businessClick);
+  if (businessClick !== -1) {
+   loadBusiness(businesses, id);
+  }
+
+  var nameClick = e.target.className.indexOf("name");
+  console.log(nameClick);
+  if (nameClick !== -1) {
+   loadBusiness(businesses, id);
+  }
+
+  var ratingClick = e.target.className.indexOf("rating" );
+  console.log(ratingClick);
+  if (ratingClick !== -1) {
+   loadBusiness(businesses, id);
+  }
+
+  var distanceClick = e.target.className.indexOf("distance");
+  console.log(distanceClick);
+  if (distanceClick !== -1) {
+   loadBusiness(businesses, id);
+  }
+
+  var priceClick = e.target.className.indexOf("price");
+  console.log(priceClick);
+  if (priceClick !== -1) {
+   loadBusiness(businesses, id);
+  }
+
+  var addressClick = e.target.className.indexOf("address");
+  console.log(addressClick);
+  if (addressClick !== -1) {
+   loadBusiness(businesses, id);
+  }
+
+  var phoneClick = e.target.className.indexOf("phone");
+  console.log(phoneClick);
+  if (phoneClick !== -1) {
+   loadBusiness(businesses, id);
+  }
+
+  var reviewClick = e.target.className.indexOf("review");
+  console.log(reviewClick);
+  if (reviewClick !== -1) {
+   loadBusiness(businesses, id);
   }
 });
 
-content.addEventListener("click", function (e) {
-  var clickEvent = e.target.className.indexOf("name");
-  console.log(clickEvent);
-  if (clickEvent !== -1) {
-    var id = e.target.getAttribute("id");
-    loadBusiness(businesses, id);
-  }
-});
-
-content.addEventListener("click", function (e) {
-  var clickEvent = e.target.className.indexOf("rating");
-  console.log(clickEvent);
-  if (clickEvent !== -1) {
-    var id = e.target.getAttribute("id");
-    loadBusiness(businesses, id);
-  }
-});
-
-content.addEventListener("click", function (e) {
-  var clickEvent = e.target.className.indexOf("distance");
-  console.log(clickEvent);
-  if (clickEvent !== -1) {
-    var id = e.target.getAttribute("id");
-    loadBusiness(businesses, id);
-  }
-});
-
-content.addEventListener("click", function (e) {
-  var clickEvent = e.target.className.indexOf("price");
-  console.log(clickEvent);
-  if (clickEvent !== -1) {
-    var id = e.target.getAttribute("id");
-    loadBusiness(businesses, id);
-  }
-});
-
-content.addEventListener("click", function (e) {
-  var clickEvent = e.target.className.indexOf("address");
-  console.log(clickEvent);
-  if (clickEvent !== -1) {
-    var id = e.target.getAttribute("id");
-    loadBusiness(businesses, id);
-  }
-});
-
-content.addEventListener("click", function (e) {
-  var clickEvent = e.target.className.indexOf("phone");
-  console.log(clickEvent);
-  if (clickEvent !== -1) {
-    var id = e.target.getAttribute("id");
-    loadBusiness(businesses, id);
-  }
-});
-
-content.addEventListener("click", function (e) {
-  var clickEvent = e.target.className.indexOf("review");
-  console.log(clickEvent);
-  if (clickEvent !== -1) {
-    var id = e.target.getAttribute("id");
-    loadBusiness(businesses, id);
-  }
-});
 /*
 <div class="profile-content">
   <div class="biz-name">
@@ -348,7 +329,7 @@ content.addEventListener("click", function (e) {
 </div>
 */
 
-function renderBusiness (item) {
+function renderBusiness(item) {
   var content = document.createElement("div");
   content.setAttribute("class", "profile-content");
   content.setAttribute("id", "biz-" + item.id);
