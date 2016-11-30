@@ -122,13 +122,6 @@ for (var i = 0; i < businesses.length; i++) {
 }
 
 //begin search code
-//declare variables that refence DOM elements
-var results = document.getElementById("list");
-var term = document.getElementById("biz-search");
-var search = document.getElementById("search");
-var zip = document.getElementById("zip").textContent;
-var changeZipDisplay = document.getElementById("results");
-
 //function to clear the list div when search submit button is fired
 function empty(element) {
   while (element.firstChild) {
@@ -161,6 +154,7 @@ function listener () {
     var noMatch = document.createElement("div");
     noMatch.setAttribute("id", "no-match");
     noMatch.textContent = "No results found.";
+    var results = document.getElementById("list");
     results.appendChild(noMatch);
   }
   for (var i = 0; i < matchingItems.length; i++) {
@@ -171,15 +165,19 @@ function listener () {
 
   //changing the results list title when submit is fired
   function checkSearch () {
+    var zip = document.getElementById("zip").textContent;
+    var changeZipDisplay = document.getElementById("results");
     changeZipDisplay.textContent = "Search results for " + "'" + searchVal + "'" + " in " + zip;
   }
   checkSearch();
 }
 
 //setting up listeners for listener function
+var search = document.getElementById("search");
 search.addEventListener("click", listener);
 
 //listener for the enter button
+var term = document.getElementById("biz-search");
 term.addEventListener('keypress', function (e) {
     var key = e.which || e.keyCode;
     if (key === 13) { // 13 is enter
@@ -244,7 +242,7 @@ function renderItem(item) {
 var content = document.querySelector(".content");
 
 function loadBusiness (businesses, id) {
-  empty(content)
+  empty(content);
   for (i = 0; i < businesses.length; i++) {
     if (businesses[i].id == id) {
       var results = renderBusiness(businesses[i]);
@@ -416,9 +414,11 @@ function renderBusiness (item) {
   content.appendChild(callBox);
 
   var call = document.createElement("a");
-  call.setAttribute("href", "tel:item.phone");
   call.setAttribute("class", "call");
   call.setAttribute("id", item.id);
+  var phone = parseInt(item.phone.replace(/[^0-9]/g, ''), 10);
+  console.log(phone);
+  call.setAttribute("href", "tel:phone"); //not sure how to set this telephone link
   call.textContent = "Call " + item.phone;
   callBox.appendChild(call);
 
@@ -437,20 +437,26 @@ function renderBusiness (item) {
   return content;
 }
 
+//ADDING A REVIEW
+//function to load review page
 function loadReview (businesses, id) {
-  empty(content)
   for (i = 0; i < businesses.length; i++) {
     if (businesses[i].id == id) {
       var results = renderReview(businesses[i]);
-      content.appendChild(results);
+      var write = document.querySelector(".stars")
+      write.appendChild(results);
     }
   }
 }
 
-//event listener for click on any businesses
+//event listener to laod review page
 content.addEventListener("click", function (e) {
   var clickEvent = e.target.className.indexOf("write");
   if (clickEvent !== -1) {
+    var write = document.querySelector(".write");
+    var image = document.querySelector(".biz-image");
+    write.setAttribute("class", "write-hidden");
+    image.setAttribute("class", "image-hidden");
     var id = e.target.getAttribute("id");
     loadReview(businesses, id);
   }
@@ -463,51 +469,173 @@ html setup
 function renderReview (item) {
 
   var content = document.createElement("div");
-  content.setAttribute("class", "review-content");
+  content.setAttribute("class", "feedback-content");
   content.setAttribute("id", item.id);
 
-  var businessName = document.createElement("div");
-  businessName.setAttribute("class", "title");
-  businessName.setAttribute("id", item.id);
-  businessName.textContent = item.name;
-  content.appendChild(businessName);
-
-  var close = document.createElement("div");
+  var close = document.createElement("span");
   close.setAttribute("class", "close");
   close.setAttribute("id", item.id);
   close.textContent = "Close"
   content.appendChild(close);
 
-  var postTitle = document.createElement("div");
+  var postTitle = document.createElement("span");
   postTitle.setAttribute("class", "post-title");
   postTitle.setAttribute("id", item.id);
   postTitle.textContent = "Post a Review";
   content.appendChild(postTitle);
 
-  var post = document.createElement("div");
+  var post = document.createElement("span");
   post.setAttribute("class", "post");
   post.setAttribute("id", item.id);
   post.textContent = "Post";
   content.appendChild(post);
 
-  var reviewBox = document.createElement("div");
-  reviewBox.setAttribute("class", "review-box");
-  reviewBox.setAttribute("id", item.id);
-  content.appendChild(reviewBox);
+  var ratingBox = document.createElement("div");
+  ratingBox.setAttribute("class", "box");
+  ratingBox.setAttribute("id", item.id);
+  content.appendChild(ratingBox);
 
   var enterRating = document.createElement("input");
   enterRating.setAttribute("type", "text");
-  enterRating.setAttribute("placeholder", "1 - 5");
-  enterRating.setAttribute("class", "enter-feedback");
-  enterRating.setAttribute("id", item.id);
+  enterRating.setAttribute("placeholder", "Enter a review, value: 1 - 5");
+  enterRating.setAttribute("id", "enter-feedback");
   enterRating.textContent = "Enter a rating";
-  reviewBox.appendChild(enterRating);
+  ratingBox.appendChild(enterRating);
+
+  var reviewBox = document.createElement("div");
+  reviewBox.setAttribute("class", "box-2");
+  reviewBox.setAttribute("id", item.id);
+  content.appendChild(reviewBox);
 
   var reviewText = document.createElement("input");
-  reviewText.setAttribute("class", "feedback`-text");
-  enterRating.setAttribute("type", "text");
-  reviewText.setAttribute("id", item.id);
-  content.appendChild(reviewText);
+  reviewText.setAttribute("id", "feedback-text");
+  reviewText.setAttribute("placeholder", "Enter your review here..");
+  reviewText.setAttribute("type", "text");
+  reviewBox.appendChild(reviewText);
 
   return content;
+}
+
+//function to revert if user clicks close
+function emptyClose () {
+  var content = document.querySelector(".feedback-content")
+  empty(content)
+  var write = document.querySelector(".write-hidden");
+  var image = document.querySelector(".image-hidden");
+  write.setAttribute("class", "write");
+  image.setAttribute("class", "biz-image");
+}
+
+//event listener for close button
+content.addEventListener("click", function (e) {
+  var clickEvent = e.target.className.indexOf("close");
+  if (clickEvent !== -1) {
+    emptyClose();
+  }
+  return
+});
+
+//new data array
+var reviews = []
+
+//function is no value is entered
+function noReview () {
+  var reviewBox = document.getElementById("feedback-text");
+  var reviewWarn = document.createElement("div")
+  reviewWarn.setAttribute("id", "feedback-warning");
+  reviewWarn.textContent= "Must enter a review.";
+  reviewBox.appendChild(reviewWarn);
+}
+
+function noRating () {
+  var ratingWarn = document.createElement("span");
+  var ratingBox = document.querySelector(".box")
+  ratingWarn.setAttribute("class", "star-warning");
+  ratingWarn.textContent = "Must enter a rating.";
+  ratingBox.appendChild(ratingWarn);
+}
+
+function checkLength () {
+  var lengthWarn = document.createElement("span");
+  var textBox = document.querySelector(".box-2");
+  lengthWarn.setAttribute("class", "length");
+  lengthWarn.textContent = "Your review must be at least 10 charatcters."
+  textBox.appendChild(lengthWarn);
+}
+
+//function if rating is not the requested value
+function ratingLength () {
+  var ratingWarn = document.createElement("span");
+  var ratingBox = document.querySelector(".box")
+  ratingWarn.setAttribute("class", "star-warning");
+  ratingWarn.textContent = "Rating must be 1 - 5";
+  ratingBox.appendChild(ratingWarn);
+}
+
+//event listener for post button
+content.addEventListener("click", function (e) {
+  console.log(e)
+  var clickEvent = e.target.className.indexOf("post");
+  if (clickEvent === -1) {
+    return;
+  }
+
+  var ratingVal = parseInt(document.getElementById("enter-feedback").value);
+  var reviewVal = document.getElementById("feedback-text").value;
+  console.log(ratingVal);
+  console.log(reviewVal);
+  console.log(reviewVal.length);
+  console.log(ratingVal.length);
+  if (ratingVal.length && reviewVal.length === 0) {
+    noRating();
+    noReview();
+  }
+  else if (isNaN(ratingVal)) {
+    noRating();
+  }
+  else if (ratingVal !== 1 || 2 || 3 || 5) {
+    ratingLength();
+  }
+  else if (reviewVal.length == 0) {
+    noReview();
+  }
+  else if (reviewVal.length < 10) {
+    checkLength();
+  }
+  else {
+    renderFeedback();
+  }
+  return
+});
+
+//appending input to data model
+
+//displaying data on business detail page
+function renderFeedback () {
+  //push values to the reviews array
+  var feedback = document.querySelector(".feedback");
+  var setId = feedback.getAttribute("id")
+  var ratingVal = document.getElementById("enter-feedback").value;
+  var reviewVal = document.getElementById("feedback-text").value;
+  reviews.push({id: setId, rating: ratingVal, review: reviewVal});
+  console.log(reviews);
+
+  //loop through new reviews array and display all reviews
+  for (i = 0; i < reviews.length; i++) {
+    if (setId === reviews[i].id) {
+      var currentReview = reviews[reviews.length -1].review;
+      console.log(currentReview);
+      var newFeedback = document.createElement("div")
+      newFeedback.setAttribute("class", "new-feedback");
+      newFeedback.textContent = currentReview;
+      feedback.appendChild(newFeedback);
+    }
+  }
+  //empty add review content and go back to business detail
+  var content = document.querySelector(".feedback-content")
+  empty(content)
+  var write = document.querySelector(".write-hidden");
+  var image = document.querySelector(".image-hidden");
+  write.setAttribute("class", "write");
+  image.setAttribute("class", "biz-image");
 }

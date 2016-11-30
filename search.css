@@ -137,8 +137,7 @@ img {
 
 .stars {
   left: 0px;
-  margin: 15px 0px 25px 0px;
-  border-bottom: solid 1px gray;
+  margin: 15px 0px 0px 0px;
   padding-bottom: 15px;
 }
 
@@ -272,5 +271,72 @@ img {
 }
 
 .call:hover {
+  color: #CF0814;
+}
+
+.write-hidden {
+  visibility: hidden;
+}
+
+.image-hidden {
+  visibility: hidden;
+}
+
+#feedback-text {
+  width: 100%;
+  height: 300px;
+  border-radius: 3px;
+  margin: 15px auto;
+  vertical-align: top;
+}
+
+#enter-feedback {
+  height: 30px;
+  width: 20%;
+  margin: 15px auto;
+
+}
+
+.feedback-content {
+  margin: 20px 0px;
+}
+
+.close {
+  margin: 20px 0px 20px 0px;
+  padding: 20px 0px;
+  font-size: 1em;
+}
+
+.post {
+  float: right;
+  font-size: 1em;
+}
+
+.post-title {
+  margin: auto;
+  font-size: 1.2em;
+  position: absolute;
+}
+
+.post {
+  color: #01C004;
+}
+
+.post:hover {
+  color: #007401;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #CF0814;
+  cursor: pointer;
+}
+
+.length {
+  color: #CF0814;
+}
+
+.star-warning {
+  padding-left: 10px;
   color: #CF0814;
 }
