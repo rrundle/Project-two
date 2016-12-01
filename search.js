@@ -1,5 +1,6 @@
 var businesses = [
-  { name: "Ruth Chris",
+  { id: 1,
+    name: "Ruth Chris",
     address: "2961 Michelson Dr #A, Irvine, CA 92612",
     price: "$$$$",
     distance: "6.9 mi",
@@ -7,7 +8,8 @@ var businesses = [
     rating: "rating: 4",
     review: "Butter on the steak!"},
 
-  { name: "Mastro's Steakhouse",
+  { id: 2,
+    name: "Mastro's Steakhouse",
     address: "633 Anton Blvd, Costa Mesa, CA 92626",
     price: "$$$$",
     distance: "5.2 mi",
@@ -15,7 +17,8 @@ var businesses = [
     rating: "rating: 4",
     review: "Great food, poor service."},
 
-  { name: "Roy's Hawaiian Fusion",
+  { id: 3,
+    name: "Roy's Hawaiian Fusion",
     address: "453 Newport Center Dr, Newport Beach, CA 92660",
     price: "$$$$",
     distance: "5.7mi",
@@ -23,7 +26,8 @@ var businesses = [
     rating: "rating: 4",
     review: "My favorite place! Lobster potstickers...hello heaven!"},
 
-  { name: "Cafe Rio",
+  { id: 4,
+    name: "Cafe Rio",
     address: "253 17th St, Costa Mesa, CA 92627",
     price: "$",
     distance: "0.7 mi",
@@ -31,7 +35,9 @@ var businesses = [
     rating: "rating: 3",
     review: "Is there even an interview here?"},
 
-  { name: "Pitfire Artisan Pizza",
+  {
+    id: 5,
+    name: "Pitfire Artisan Pizza",
     address: "4353 E 17th St, Costa Mesa, CA 92627",
     price: "$$",
     distance: "1.2 mi",
@@ -39,7 +45,8 @@ var businesses = [
     rating: "rating: 4",
     review: "Yum. Yum. Yum. Yum"},
 
-  { name: "Avila's El Ranchito",
+  { id: 6,
+    name: "Avila's El Ranchito",
     address: "2101 Placentia Ave, Costa Mesa, CA 92627",
     price: "$$",
     distance: "0.4 mi",
@@ -47,7 +54,8 @@ var businesses = [
     rating: "rating: 4",
     review: "Bomb old school mexican. I think the whole family works there." },
 
-  { name: "McDonald's",
+  { id: 7,
+    name: "McDonald's",
     address: "2300 Harbor Blvd, Costa Mesa, CA 92626",
     price: "$",
     distance: "2.3 mi",
@@ -57,7 +65,7 @@ var businesses = [
 ]
 
 //disabling searching by zipcode
-var zipSearch = document.getElementById("location");
+var zipSearch = document.getElementById("place");
 zipSearch.setAttribute("disabled", true);
 
 //loading each object in the businesses array on the search page
@@ -65,41 +73,47 @@ zipSearch.setAttribute("disabled", true);
 for (var i = 0; i < businesses.length; i++) {
   var business = document.createElement("div");
   business.setAttribute("class", "business");
+  business.setAttribute("id", businesses[i].id);
 
   var businessName = document.createElement("span");
   businessName.setAttribute("class", "name");
+  businessName.setAttribute("id", businesses[i].id);
   businessName.textContent = businesses[i].name;
   business.appendChild(businessName);
 
   var rating = document.createElement("span");
   rating.setAttribute("class", "rating");
+  rating.setAttribute("id", businesses[i].id);
   rating.textContent = businesses[i].rating;
   business.appendChild(rating);
 
   var distance = document.createElement("span");
   distance.setAttribute("class", "distance");
+  distance.setAttribute("id", businesses[i].id);
   distance.textContent = businesses[i].distance;
   business.appendChild(distance);
 
   var price = document.createElement("span");
   price.setAttribute("class", "price");
+  price.setAttribute("id", businesses[i].id);
   price.textContent = businesses[i].price;
   business.appendChild(price);
 
   var address = document.createElement("div");
   address.setAttribute("class", "address");
-  address.setAttribute("class", "contact");
+  address.setAttribute("id", businesses[i].id);
   address.textContent = businesses[i].address;
   business.appendChild(address);
 
   var phone = document.createElement("div");
   phone.setAttribute("class", "phone");
-  phone.setAttribute("class", "contact");
+  phone.setAttribute("id", businesses[i].id);
   phone.textContent = businesses[i].phone;
   business.appendChild(phone);
 
   var review = document.createElement("div");
   review.setAttribute("class", "review");
+  review.setAttribute("id", businesses[i].id);
   review.textContent = businesses[i].review;
   business.appendChild(review);
 
@@ -123,7 +137,7 @@ function empty(element) {
 }
 
 //declaring function to search for matching text
-function searchItems (allItems, searchVal) {
+function searchItems(allItems, searchVal) {
   var matchingItems = [];
   for (var i = 0; i < allItems.length; i++) {
     var item = allItems[i];
@@ -138,8 +152,8 @@ function searchItems (allItems, searchVal) {
 
 //declaring function for capturing search input on search button click, clearing the list div,
 //appending item to results div
-function listener () {
-  empty(results);
+function listener() {
+  empty(list);
   var searchVal = term.value;
   if (!searchVal.trim()) return;
   var matchingItems = searchItems (businesses, searchVal);
@@ -151,7 +165,7 @@ function listener () {
   }
   for (var i = 0; i < matchingItems.length; i++) {
     var item = renderItem (matchingItems[i]);
-    results.appendChild(item);
+    list.appendChild(item);
     }
   term.select();
 
@@ -180,24 +194,29 @@ function renderItem(item) {
 
   var biz = document.createElement("div");
   biz.setAttribute("class", "business");
+  biz.setAttribute("id", item.id);
 
   var businessName = document.createElement("span");
   businessName.setAttribute("class", "name");
+  businessName.setAttribute("id", item.id);
   businessName.textContent = item.name;
   biz.appendChild(businessName);
 
   var rating = document.createElement("span");
   rating.setAttribute("class", "rating");
+  rating.setAttribute("id", item.id);
   rating.textContent = item.rating;
   biz.appendChild(rating);
 
   var distance = document.createElement("span");
   distance.setAttribute("class", "distance");
+  distance.setAttribute("id", item.id);
   distance.textContent = item.distance;
   biz.appendChild(distance);
 
   var price = document.createElement("span");
   price.setAttribute("class", "price");
+  price.setAttribute("id", item.id);
   price.textContent = item.price;
   biz.appendChild(price);
 
@@ -208,13 +227,187 @@ function renderItem(item) {
 
   var phone = document.createElement("div");
   phone.setAttribute("class", "phone");
+  phone.setAttribute("id", item.id);
   phone.textContent = item.phone;
   biz.appendChild(phone);
 
   var review = document.createElement("div");
   review.setAttribute("class", "review");
+  review.setAttribute("id", item.id);
   review.textContent = item.review;
   biz.appendChild(review);
 
   return biz;
+}
+
+//user can click on business from results to view it
+var content = document.querySelector(".content");
+
+function loadBusiness(businesses, id) {
+  empty(content)
+  for (i = 0; i < businesses.length; i++) {
+    if (businesses[i].id == id) {
+      var results = renderBusiness(businesses[i]);
+      content.appendChild(results);
+    }
+  }
+}
+
+//event listener for click on any businesses
+var businessBox = document.getElementById("list");
+businessBox.addEventListener("click", function(e) {
+  var id = e.target.getAttribute("id");
+  var businessClick = e.target.className.indexOf("business");
+  console.log(businessClick);
+  if (businessClick !== -1) {
+   loadBusiness(businesses, id);
+  }
+
+  var nameClick = e.target.className.indexOf("name");
+  console.log(nameClick);
+  if (nameClick !== -1) {
+   loadBusiness(businesses, id);
+  }
+
+  var ratingClick = e.target.className.indexOf("rating" );
+  console.log(ratingClick);
+  if (ratingClick !== -1) {
+   loadBusiness(businesses, id);
+  }
+
+  var distanceClick = e.target.className.indexOf("distance");
+  console.log(distanceClick);
+  if (distanceClick !== -1) {
+   loadBusiness(businesses, id);
+  }
+
+  var priceClick = e.target.className.indexOf("price");
+  console.log(priceClick);
+  if (priceClick !== -1) {
+   loadBusiness(businesses, id);
+  }
+
+  var addressClick = e.target.className.indexOf("address");
+  console.log(addressClick);
+  if (addressClick !== -1) {
+   loadBusiness(businesses, id);
+  }
+
+  var phoneClick = e.target.className.indexOf("phone");
+  console.log(phoneClick);
+  if (phoneClick !== -1) {
+   loadBusiness(businesses, id);
+  }
+
+  var reviewClick = e.target.className.indexOf("review");
+  console.log(reviewClick);
+  if (reviewClick !== -1) {
+   loadBusiness(businesses, id);
+  }
+});
+
+/*
+<div class="profile-content">
+  <div class="biz-name">
+    <span class="biz-distance"></span>
+  </div>
+  <div class="biz-rating">
+    <span class="biz-price">
+  </div>
+  <div class="write-review">
+  </div>
+  <div class="biz-image">
+  </div>
+  <div class="biz-address">
+  </div>
+  <div class="biz-directions">
+  </div>
+  <div class="biz-call">
+  </div>
+  <div class="biz-review">
+  </div>
+</div>
+*/
+
+function renderBusiness(item) {
+  var content = document.createElement("div");
+  content.setAttribute("class", "profile-content");
+  content.setAttribute("id", "biz-" + item.id);
+
+  var businessName = document.createElement("div");
+  businessName.setAttribute("class", "title");
+  businessName.textContent = item.name;
+  content.appendChild(businessName);
+
+  var distance = document.createElement("span");
+  distance.setAttribute("class", "miles");
+  distance.textContent = item.distance;
+  businessName.appendChild(distance);
+
+  var rating = document.createElement("div");
+  rating.setAttribute("class", "stars");
+  rating.textContent = item.rating;
+  content.appendChild(rating);
+
+  var price = document.createElement("span");
+  price.setAttribute("class", "cost");
+  price.textContent = item.price;
+  rating.appendChild(price);
+
+  var writeReview = document.createElement("div");
+  writeReview.setAttribute("class", "write");
+  writeReview.textContent = "Write a review";
+  content.appendChild(writeReview);
+
+  var image = document.createElement("div");
+  image.setAttribute("class", "biz-image");
+  image.setAttribute("id", "image-" + item.id);
+  content.appendChild(image);
+
+  var address = document.createElement("div");
+  address.setAttribute("class", "local");
+  address.textContent = item.address;
+  content.appendChild(address);
+
+  var directionsHeader = document.createElement("div");
+  directionsHeader.setAttribute("class", "biz-directions-header");
+  directionsHeader.textContent = "Directions:";
+  content.appendChild(directionsHeader);
+
+  var directionsBox = document.createElement("div");
+  directionsBox.setAttribute("class", "biz-directions");
+  content.appendChild(directionsBox);
+
+  var directions = document.createElement("a");
+  directions.setAttribute("href", "http://maps.google.com");
+  directions.setAttribute("class", "directions");
+  directions.textContent = "Get directions";
+  directionsBox.appendChild(directions);
+
+  var callHeader = document.createElement("div");
+  callHeader.setAttribute("class", "biz-call-header");
+  callHeader.textContent = "Call the business:";
+  content.appendChild(callHeader);
+
+  var callBox = document.createElement("div");
+  callBox.setAttribute("class", "biz-call");
+  content.appendChild(callBox);
+
+  var call = document.createElement("a");
+  call.setAttribute("href", "tel:item.phone");
+  call.setAttribute("class", "call");
+  call.textContent = "Call " + item.phone;
+  callBox.appendChild(call);
+
+  var reviewHeader = document.createElement("div");
+  reviewHeader.setAttribute("class", "feedback-header");
+  reviewHeader.textContent = "Reviews:";
+  content.appendChild(reviewHeader);
+
+  var review = document.createElement("div");
+  review.setAttribute("class", "feedback");
+  review.textContent = '"' + item.review + '"';
+  content.appendChild(review);
+
+  return content;
 }
