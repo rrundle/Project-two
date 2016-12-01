@@ -6,7 +6,8 @@ var businesses = [
     distance: "6.9 mi",
     phone: "(949)252-8848",
     rating: "rating: 4",
-    review: "Butter on the steak!"},
+    review: "Butter on the steak!",
+    keywords: "steak formal dinner bar drinks expensive date full service restaurant food dessert"},
 
   { id: 2,
     name: "Mastro's Steakhouse",
@@ -15,7 +16,8 @@ var businesses = [
     distance: "5.2 mi",
     phone: "(714) 546-7405",
     rating: "rating: 4",
-    review: "Great food, poor service."},
+    review: "Great food, poor service.",
+    keywords: "steak formal dinner bar drinks expensive date full service restaurant food dessert"},
 
   { id: 3,
     name: "Roy's Hawaiian Fusion",
@@ -24,7 +26,8 @@ var businesses = [
     distance: "5.7mi",
     phone: "(949) 640-7697",
     rating: "rating: 4",
-    review: "My favorite place! Lobster potstickers...hello heaven!"},
+    review: "My favorite place! Lobster potstickers...hello heaven!",
+    keywords: "steak fish sushi lobster surf turf bar formal dinner expensive date full service restaurant food dessert"},
 
   { id: 4,
     name: "Cafe Rio",
@@ -33,7 +36,8 @@ var businesses = [
     distance: "0.7 mi",
     phone: "(949) 335-6800",
     rating: "rating: 3",
-    review: "Is there even an interview here?"},
+    review: "Is there even an interview here?",
+    keywords: "tacos mexican southwest burritos salads fast takeout tortillas pork chicken beef food"},
 
   {
     id: 5,
@@ -43,7 +47,8 @@ var businesses = [
     distance: "1.2 mi",
     phone: "(949) 313-6333",
     rating: "rating: 4",
-    review: "Yum. Yum. Yum. Yum"},
+    review: "Yum. Yum. Yum. Yum",
+    keywords: "pizza beer pasta takeout fast salads delivery food"},
 
   { id: 6,
     name: "Avila's El Ranchito",
@@ -52,7 +57,8 @@ var businesses = [
     distance: "0.4 mi",
     phone: "(949) 642-1142",
     rating: "rating: 4",
-    review: "Bomb old school mexican. I think the whole family works there." },
+    review: "Bomb old school mexican. I think the whole family works there.",
+    keywords: "mexican tacos margaritas burritos enchiladas taquitos tortillas full service mariachi restaurant food"},
 
   { id: 7,
     name: "McDonald's",
@@ -61,7 +67,8 @@ var businesses = [
     distance: "2.3 mi",
     phone: "(949) 631-1943",
     rating: "rating: 2",
-    review: "There's homeless people outside, stick to the drive-thru."}
+    review: "There's homeless people outside, stick to the drive-thru.",
+    keywords: "burgers fast drive-thru takeout fries ice cream cones food dessert"}
 ]
 
 //disabling searching by zipcode
@@ -155,7 +162,7 @@ function searchItems(allItems, searchVal) {
   var matchingItems = [];
   for (var i = 0; i < allItems.length; i++) {
     var item = allItems[i];
-    var itemText = (item.name + item.address + item.phone + item.rating + item.price + item.review + item.distance).replace(/[^a-zA-Z0-9]/g, '');
+    var itemText = (item.name + item.address + item.phone + item.rating + item.price + item.review + item.distance + item.keywords).replace(/[^a-zA-Z0-9]/g, '');
     var isMatch = itemText.toLowerCase().indexOf(searchVal.toLowerCase()) > -1;
     if (isMatch) {
       matchingItems.push(item);
