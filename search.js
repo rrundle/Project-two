@@ -200,7 +200,7 @@ search.addEventListener("click", listener);
 
 //listener for the enter button
 var term = document.getElementById("biz-search");
-term.addEventListener('keypress', function (e) {
+term.addEventListener("keypress", function(e) {
     var key = e.which || e.keyCode;
     if (key === 13) { // 13 is enter
       listener();
@@ -273,6 +273,7 @@ function loadBusiness(businesses, id) {
 
 //event listener for click on any businesses
 var businessBox = document.getElementById("list");
+
 businessBox.addEventListener("click", function(e) {
   var id = e.target.getAttribute("id");
   var businessClick = e.target.className.indexOf("business");
@@ -427,11 +428,28 @@ function renderBusiness(item) {
   reviewHeader.textContent = "Reviews:";
   content.appendChild(reviewHeader);
 
+  var reviewContent = document.createElement("div");
+  reviewHeader.setAttribute("class", "feedback-box");
+  reviewHeader.setAttribute("id", item.id);
+  content.appendChild(reviewContent);
+
+  var favReview = document.createElement("div");
+  favReview.setAttribute("class", "fav-feedback");
+  favReview.setAttribute("id", item.id);
+  favReview.textContent = "Favorite review:"
+  content.appendChild(favReview);
+
   var review = document.createElement("div");
   review.setAttribute("class", "feedback");
   review.setAttribute("id", item.id);
   review.textContent = '"' + item.review + '"';
-  content.appendChild(review);
+  favReview.appendChild(review);
+
+  var recentReviews = document.createElement("div");
+  recentReviews.setAttribute("class", "recent-feedback");
+  recentReviews.setAttribute("id", item.id);
+  recentReviews.textContent = "Recent reviews:";
+  review.appendChild(recentReviews);
 
   return content;
 }
@@ -448,20 +466,11 @@ function loadReview(businesses, id) {
   }
 }
 
-function emptyConfirm() {
-  var confirmContent = document.getElementById("confirm");
-  if (confirmContent) {
-    confirmContent.nextSibling.removeNode;
-  }
-  else {
-    return
-  }
-}
-
 //event listener to laod review page
 content.addEventListener("click", function(e) {
   var clickEvent = e.target.className.indexOf("write");
   if (clickEvent !== -1) {
+    emptyConfirm();
     var write = document.querySelector(".write");
     var image = document.querySelector(".biz-image");
     write.setAttribute("class", "write-hidden");
@@ -487,12 +496,6 @@ function renderReview(item) {
   close.textContent = "Close"
   content.appendChild(close);
 
-  var postTitle = document.createElement("span");
-  postTitle.setAttribute("class", "post-title");
-  postTitle.setAttribute("id", item.id);
-  postTitle.textContent = "Post a Review";
-  content.appendChild(postTitle);
-
   var post = document.createElement("span");
   post.setAttribute("class", "post");
   post.setAttribute("id", item.id);
@@ -506,7 +509,7 @@ function renderReview(item) {
 
   var enterRating = document.createElement("input");
   enterRating.setAttribute("type", "text");
-  enterRating.setAttribute("placeholder", "Enter a review, value: 1 - 5");
+  enterRating.setAttribute("placeholder", "Enter a rating, value: 1 - 5");
   enterRating.setAttribute("id", "enter-feedback");
   enterRating.textContent = "Enter a rating";
   ratingBox.appendChild(enterRating);
@@ -531,6 +534,8 @@ function emptyClose() {
   var write = document.querySelector(".write-hidden");
   var image = document.querySelector(".image-hidden");
   write.setAttribute("class", "write");
+  var writeVisible = document.querySelector(".write");
+  writeVisible.textContent = "Write a review";
   image.setAttribute("class", "biz-image");
 }
 
@@ -539,7 +544,6 @@ content.addEventListener("click", function(e) {
   var clickEvent = e.target.className.indexOf("close");
   if (clickEvent !== -1) {
     emptyClose();
-    emptyConfirm();
   }
   return
 });
@@ -572,15 +576,6 @@ function checkLength() {
   textBox.appendChild(lengthWarn);
 }
 
-//function if rating is not the requested value
-function ratingLength() {
-  var ratingWarn = document.createElement("span");
-  var ratingBox = document.querySelector(".box")
-  ratingWarn.setAttribute("class", "star-warning");
-  ratingWarn.textContent = "Rating must be 1 - 5";
-  ratingBox.appendChild(ratingWarn);
-}
-
 function removeWarnings() {
   var starWarning = document.querySelector(".star-warning");
   var reviewWarning = document.getElementById("feedback-warning");
@@ -601,28 +596,27 @@ function removeWarnings() {
 }
 
 //event listener for post button
-content.addEventListener("click", function (e) {
+content.addEventListener("click", function(e) {
   var clickEvent = e.target.className.indexOf("post");
   if (clickEvent === -1) {
     return;
   }
 
-  emptyConfirm();
   removeWarnings();
   var ratingVal = parseInt(document.getElementById("enter-feedback").value);
   var reviewVal = document.getElementById("feedback-text").value;
+  console.log(ratingVal);
   if (ratingVal.length && reviewVal.length === 0) {
-    noRating();
-    noReview();
+    noRating(); return
   }
   else if (isNaN(ratingVal)) {
-    noRating();
+    noRating(); return
   }
   else if (reviewVal.length === 0) {
-    noReview();
+    noReview(); return
   }
   else if (reviewVal.length < 10) {
-    checkLength();
+    checkLength(); return
   }
   else {
     renderFeedback();
@@ -636,31 +630,37 @@ function removeInputs() {
     feedbackContent.parentNode.removeChild(feedbackContent);
   }
   else {
-    return
+    return;
+  }
+}
+
+//function to empty confirmation text
+function emptyConfirm() {
+  var confirmContent = document.querySelector(".write");
+  if (!confirmContent.firstChild) {
+    return;
+  }
+  else {
+    confirmContent.removeChild(confirmContent.firstChild);
   }
 }
 
 //displaying data on business detail page
 function renderFeedback() {
   //push values to the reviews array
-  var feedback = document.querySelector(".feedback");
+  var feedback = document.querySelector(".recent-feedback");
   var setId = feedback.getAttribute("id")
   var ratingVal = document.getElementById("enter-feedback").value;
   var reviewVal = document.getElementById("feedback-text").value;
   reviews.push({id: setId, rating: ratingVal, review: reviewVal});
-  console.log(reviews);
 
-  //loop through new reviews array and display all reviews
-  for (i = 0; i < reviews.length; i++) {
-    if (setId === reviews[i].id) {
-      var currentReview = reviews[reviews.length - 1].review;
-      console.log(currentReview);
-      var newFeedback = document.createElement("div")
-      newFeedback.setAttribute("class", "new-feedback");
-      newFeedback.textContent = currentReview;
-      feedback.appendChild(newFeedback);
-    }
-  }
+  //capture most recent review and display it
+  var currentReview = reviews[reviews.length - 1].review;
+  var newFeedback = document.createElement("div")
+  newFeedback.setAttribute("class", "new-feedback");
+  newFeedback.textContent = currentReview;
+  feedback.parentNode.insertBefore(newFeedback, feedback.nextSibling);
+
   //empty add review content and go back to business detail
   removeInputs();
   var write = document.querySelector(".write-hidden");
@@ -668,8 +668,9 @@ function renderFeedback() {
   write.setAttribute("class", "write");
   image.setAttribute("class", "biz-image");
   var writeReview = document.querySelector(".write");
-  var reviewConfirm = document.createElement("div");
-  reviewConfirm.setAttribute("id", "confrim");
+  writeReview.textContent = "Write a review";
+  var reviewConfirm = document.createElement("span");
+  reviewConfirm.setAttribute("class", "confirm");
   reviewConfirm.textContent = "Review Added!";
   writeReview.appendChild(reviewConfirm);
 }
