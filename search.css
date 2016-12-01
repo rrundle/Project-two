@@ -5,7 +5,11 @@ body {
 
 .logo {
   width: 200px;
-  margin: 20px auto;
+  margin: 20px auto 5px auto;
+}
+
+#home {
+  visibility: hidden;
 }
 
 img {
@@ -137,8 +141,7 @@ img {
 
 .stars {
   left: 0px;
-  margin: 15px 0px 25px 0px;
-  border-bottom: solid 1px gray;
+  margin: 15px 0px 0px 0px;
   padding-bottom: 15px;
 }
 
@@ -240,14 +243,10 @@ img {
   padding: 10px 0px 0px 5px;
 }
 
-.feedback-header {
+.feedback-box {
   padding-bottom: 15px;
   border-bottom: solid 1px gray;
   font-weight: bold;
-}
-
-.feedback {
-  margin: 20px auto;
 }
 
 .biz-directions-header {
@@ -273,4 +272,152 @@ img {
 
 .call:hover {
   color: #CF0814;
+}
+
+.write-hidden {
+  visibility: hidden;
+}
+
+.image-hidden {
+  visibility: hidden;
+}
+
+#feedback-text {
+  width: 100%;
+  border-radius: 3px;
+  margin: 15px auto;
+  font-size: 1.2em;
+  padding:10px 5px 300px 5px;
+}
+
+#feedback-text::-webkit-input-placeholder {
+   font-size: 1.2em;
+}
+
+#enter-feedback {
+  height: 30px;
+  width: 20%;
+  margin: 15px auto;
+  border-radius: 3px;
+  font-size: 1em;
+  padding-left: 5px;
+}
+
+#enter-feedback::-webkit-input-placeholder {
+  font-size: 0.75em;
+}
+
+.feedback-content {
+  margin: 20px 0px;
+  border-top: solid 1px #D0D0D0;
+  padding-top: 15px;
+}
+
+.close {
+  margin: 20px 0px 20px 0px;
+  padding: 20px 0px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.post {
+  float: right;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #01C004;
+}
+
+.post:hover {
+  color: #007401;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #CF0814;
+  cursor: pointer;
+}
+
+.length {
+  color: #CF0814;
+}
+
+.star-warning {
+  padding-left: 10px;
+  color: #CF0814;
+  font-weight: bold;
+}
+
+#feedback-warning {
+  width: 100%;
+  height: 40px;
+  color: #CF0814;
+  font-weight: bold;
+}
+
+#length {
+  width: 100%;
+  height: 40px;
+}
+
+.confirm {
+  padding-left: 25px;
+  color: #3BBF3E;
+  height: 40px;
+  display: inline-block;
+  position: absolute;
+  left: 60%;
+  font-weight: bold;
+  -webkit-animation: fadeInOut 6s;
+  animation: fadeInOut 6s;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  84% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.new-feedback {
+  height: 50px;
+  border: solid 1px #D0D0D0;
+  border-radius: 3px;
+  margin: 0px 0px 30px 0px;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.feedback {
+  height: 50px;
+  border: solid 1px #CF0814;
+  border-radius: 3px;
+  margin: 30px 0px 30px 0px;
+  padding-left: 10px;
+  padding-top: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.recent-feedback {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 40px auto;
+  clear: both;
+}
+
+.fav-feedback {
+  height: 40px;
+  margin-top: 15px;
 }
