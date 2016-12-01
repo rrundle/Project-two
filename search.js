@@ -155,7 +155,7 @@ function searchItems(allItems, searchVal) {
   var matchingItems = [];
   for (var i = 0; i < allItems.length; i++) {
     var item = allItems[i];
-    var itemText = item.name + item.address + item.phone + item.rating + item.price + item.review + item.distance;
+    var itemText = (item.name + item.address + item.phone + item.rating + item.price + item.review + item.distance).replace(/[^a-zA-Z0-9]/g, '');
     var isMatch = itemText.toLowerCase().indexOf(searchVal.toLowerCase()) > -1;
     if (isMatch) {
       matchingItems.push(item);
