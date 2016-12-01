@@ -216,6 +216,54 @@ img {
   background-position: center;
 }
 
+#image-8 {
+  background-image: url("http://i.imgur.com/FQ1m3Ta.jpg?1");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#image-9 {
+  background-image: url("http://i.imgur.com/3gnjVLO.jpg?1");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#image-10 {
+  background-image: url("http://i.imgur.com/K6xJxhu.jpg?1");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#image-11 {
+  background-image: url("http://i.imgur.com/9GyDUwV.jpg?1");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#image-12 {
+  background-image: url("http://i.imgur.com/AmODslY.jpg?1");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#image-13 {
+  background-image: url("http://i.imgur.com/hO8nwdi.jpg?1");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#image-14 {
+  background-image: url("http://i.imgur.com/8GTB8X2.jpg?1");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#image-15 {
+  background-image: url("http://i.imgur.com/DEakqzi.jpg?1");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .local {
   margin-bottom: 15px;
   border-bottom: solid 1px gray;
