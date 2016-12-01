@@ -262,7 +262,7 @@ function renderItem(item) {
 
 //user can click on business from results to view it
 function loadBusiness(businesses, id) {
-  empty(content);
+  empty(content)
   for (i = 0; i < businesses.length; i++) {
     if (businesses[i].id == id) {
       var results = renderBusiness(businesses[i]);
@@ -605,7 +605,6 @@ content.addEventListener("click", function(e) {
   removeWarnings();
   var ratingVal = parseInt(document.getElementById("enter-feedback").value);
   var reviewVal = document.getElementById("feedback-text").value;
-  console.log(ratingVal);
   if (ratingVal.length && reviewVal.length === 0) {
     noRating(); return
   }
