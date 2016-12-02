@@ -148,7 +148,7 @@ img {
 
 .stars {
   left: 0px;
-  margin: 15px 0px 0px 0px;
+  margin: 15px 0px 30px 0px;
   padding-bottom: 15px;
 }
 
@@ -364,8 +364,14 @@ img {
 
 .feedback-content {
   margin: 20px 0px;
-  border-top: solid 1px #D0D0D0;
   padding-top: 15px;
+}
+
+.quick-rate {
+  width: 20%;
+  height: 30px;
+  margin: auto;
+  padding: auto;
 }
 
 .close {
@@ -373,6 +379,13 @@ img {
   padding: 20px 0px;
   font-size: 1.2em;
   font-weight: bold;
+}
+
+.post-disabled {
+  float: right;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #D0D0D0;
 }
 
 .post {
@@ -394,12 +407,6 @@ img {
 
 .length {
   color: #CF0814;
-}
-
-.star-warning {
-  padding-left: 10px;
-  color: #CF0814;
-  font-weight: bold;
 }
 
 #feedback-warning {
@@ -482,4 +489,155 @@ img {
   float: right;
   padding-top: 5px;
   padding-right: 10px;
+}
+
+.quick-rate {
+  left: 13%;
+  position: absolute;;
+  color: black;
+  top: 190px;
+  font-weight: bold;
+}
+
+.bomb-box {
+  height: 40px;
+  width: 225px;
+  margin: auto;
+}
+
+.fa-bomb {
+  display: inline-block;
+  position: absolute;
+  width: 1em;
+}
+
+.fa-bomb:hover:before, .fa-bomb:hover ~ .fa-bomb:before {
+  content: "<i class="fa fa-bomb" aria-hidden="true"></i>";
+  position: absolute;
+  color: black;
+  cursor: pointer;
+}
+
+#bomb-1 {
+  color: #D0D0D0;
+  padding: 10px;
+  top: 235px;
+  width: 25px;
+}
+
+#bomb-2 {
+  color: #D0D0D0;
+  padding: 10px;
+  top: 235px;
+  width: 25px;
+  margin-left: 3%;
+}
+
+#bomb-3 {
+  color: #D0D0D0;
+  padding: 10px;
+  top: 235px;
+  width: 25px;
+  margin-left: 6%;
+}
+
+#bomb-4 {
+  color: #D0D0D0;
+  padding: 10px;
+  top: 235px;
+  width: 25px;
+  margin-left: 9%;
+}
+
+#bomb-5 {
+  color: #D0D0D0;
+  padding: 10px;
+  top: 235px;
+  width: 25px;
+  margin-left: 12%;
+}
+
+#bomb-1::before {
+  font-size: 2em;
+}
+
+#bomb-2::before {
+  font-size: 2em;
+}
+
+#bomb-3::before {
+  font-size: 2em;
+}
+
+#bomb-4::before {
+  font-size: 2em;
+}
+
+#bomb-5::before {
+  font-size: 2em;
+}
+
+#bomb-click-1 {
+  color: black;
+  position: absolute;
+  left: 12.5%;
+  padding: 10px;
+  top: 235px;
+  width: 25px;
+}
+
+#bomb-click-1:before {
+  font-size: 2em;
+}
+
+#bomb-click-2 {
+  color: black;
+  position: absolute;
+  left: 15.5%;
+  padding: 10px;
+  top: 235px;
+  width: 25px;
+}
+
+#bomb-click-2:before {
+  font-size: 2em;
+}
+
+#bomb-click-3 {
+  color: black;
+  position: absolute;
+  left: 18.5%;
+  padding: 10px;
+  top: 235px;
+  width: 25px;
+}
+
+#bomb-click-3:before {
+  font-size: 2em;
+}
+
+#bomb-click-4 {
+  color: black;
+  position: absolute;
+  left: 21.5%;
+  padding: 10px;
+  top: 235px;
+  width: 25px;
+}
+
+#bomb-click-4:before {
+  font-size: 2em;
+}
+
+#bomb-click-5 {
+  color: black;
+  position: absolute;
+  left: 24.5%;
+  padding: 10px;
+  top: 235px;
+  width: 25px;
+}
+
+#bomb-click-5:before {
+  font-size: 2em;
 }
