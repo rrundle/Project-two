@@ -95,14 +95,21 @@ img {
   position: relative;
 }
 
-.rating {
-  margin-left: 35%;
-  position: relative;
-  padding-right: 10%;
+.price {
+  width: 50px;
+  float: right;
+  margin-right: 150px;
 }
 
 .distance {
-  padding-right: 15%;
+  width: 50px;
+  float: right;
+  margin-right: 200px;
+}
+
+.rating {
+  width: 60px;
+  float: right;
 }
 
 .phone {
@@ -468,4 +475,11 @@ img {
 .fav-feedback {
   height: 40px;
   margin-top: 15px;
+}
+
+.stamp {
+  font-size: 0.75em;
+  float: right;
+  padding-top: 5px;
+  padding-right: 10px;
 }

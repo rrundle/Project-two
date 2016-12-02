@@ -735,17 +735,24 @@ function emptyConfirm() {
 function renderFeedback() {
   //push values to the reviews array
   var feedback = document.querySelector(".recent-feedback");
-  var setId = feedback.getAttribute("id")
+  var setId = feedback.getAttribute("id");
   var ratingVal = document.getElementById("enter-feedback").value;
   var reviewVal = document.getElementById("feedback-text").value;
   reviews.push({id: setId, rating: ratingVal, review: reviewVal});
 
-  //capture most recent review and display it
+  //capture most recent review and timestamp it
   var currentReview = reviews[reviews.length - 1].review;
-  var newFeedback = document.createElement("div")
+  var stamp = timeStamp();
+
+  //display new feedback
+  var newFeedback = document.createElement("div");
   newFeedback.setAttribute("class", "new-feedback");
-  newFeedback.textContent = currentReview;
+  newFeedback.textContent = '"' + currentReview + '"';
   feedback.parentNode.insertBefore(newFeedback, feedback.nextSibling);
+  var stampDisplay = document.createElement("span");
+  stampDisplay.setAttribute("class", "stamp")
+  stampDisplay.textContent = stamp;
+  newFeedback.appendChild(stampDisplay);
 
   //empty add review content and go back to business detail
   removeInputs();
@@ -759,4 +766,20 @@ function renderFeedback() {
   reviewConfirm.setAttribute("class", "confirm");
   reviewConfirm.textContent = "Review Added!";
   writeReview.appendChild(reviewConfirm);
+}
+
+//timestamp function
+function timeStamp() {
+  var now = new Date();
+  var date = [ now.getMonth() + 1, now.getDate(), now.getFullYear() ];
+  var time = [ now.getHours(), now.getMinutes() ];
+  var suffix = ( time[0] < 12 ) ? "AM" : "PM";
+  time[0] = ( time[0] < 12 ) ? time[0] : time[0] - 12;
+  time[0] = time[0] || 12;
+  for ( var i = 1; i < 3; i++ ) {
+    if ( time[i] < 10 ) {
+      time[i] = "0" + time[i];
+    }
+  }
+  return date.join("/") + " " + time.join(":") + " " + suffix;
 }
