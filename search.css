@@ -148,7 +148,7 @@ img {
 
 .stars {
   left: 0px;
-  margin: 15px 0px 0px 0px;
+  margin: 15px 0px 30px 0px;
   padding-bottom: 15px;
 }
 
@@ -342,7 +342,7 @@ img {
   border-radius: 3px;
   margin: 15px auto;
   font-size: 1.2em;
-  padding:10px 5px 300px 5px;
+  padding:10px 0px 300px 10px;
 }
 
 #feedback-text::-webkit-input-placeholder {
@@ -364,15 +364,32 @@ img {
 
 .feedback-content {
   margin: 20px 0px;
-  border-top: solid 1px #D0D0D0;
   padding-top: 15px;
 }
 
+.quick-rate {
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  border-bottom: solid 1px #D0D0D0;
+  color: black;
+  font-weight: bold;
+  margin-bottom: 30px;
+  font-size: 1.2em
+}
+
 .close {
-  margin: 20px 0px 20px 0px;
+  margin: 30px 0px 30px 0px;
   padding: 20px 0px;
   font-size: 1.2em;
   font-weight: bold;
+}
+
+.disabled {
+  float: right;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #D0D0D0;
 }
 
 .post {
@@ -396,12 +413,6 @@ img {
   color: #CF0814;
 }
 
-.star-warning {
-  padding-left: 10px;
-  color: #CF0814;
-  font-weight: bold;
-}
-
 #feedback-warning {
   width: 100%;
   height: 40px;
@@ -412,6 +423,8 @@ img {
 #length {
   width: 100%;
   height: 40px;
+  color: #CF0814;
+  font-weight: bold;
 }
 
 .confirm {
@@ -430,7 +443,7 @@ img {
   0% {
     opacity: 0;
   }
-  20% {
+  23% {
     opacity: 1;
   }
   84% {
@@ -482,4 +495,161 @@ img {
   float: right;
   padding-top: 5px;
   padding-right: 10px;
+}
+
+.box {
+  width: 100%;
+  height: 10px;
+}
+
+.bomb-box {
+  height: 40px;
+  width: 221px;
+  margin: 0px auto;
+}
+
+.fa-bomb {
+  display: inline-block;
+  position: absolute;
+  width: 1em;
+}
+
+.fa-bomb:hover:before,
+.fa-bomb:hover ~ .fa-bomb:before  {
+  content: "<i class="fa fa-bomb" aria-hidden="true"></i>";
+  position: absolute;
+  color: black;
+  cursor: pointer;
+}
+
+.fa-bomb:hover ~ .fa-bomb {
+  content: "<i class="fa fa-bomb" aria-hidden="true"></i>";
+  position: absolute;;
+  color: #D0D0D0;
+  cursor: pointer;
+}
+
+#bomb-1 {
+  color: #D0D0D0;
+  padding: 10px;
+  top: 265px;
+  width: 25px;
+  margin-left: 12%;
+}
+
+#bomb-2 {
+  color: #D0D0D0;
+  padding: 10px;
+  top: 265px;
+  width: 25px;
+  margin-left: 9%;
+}
+
+#bomb-3 {
+  color: #D0D0D0;
+  padding: 10px;
+  top: 265px;
+  width: 25px;
+  margin-left: 6%;
+}
+
+#bomb-4 {
+  color: #D0D0D0;
+  padding: 10px;
+  top: 265px;
+  width: 25px;
+  margin-left: 3%;
+}
+
+#bomb-5 {
+  color: #D0D0D0;
+  padding: 10px;
+  top: 265px;
+  width: 25px;
+}
+
+#bomb-1::before {
+  font-size: 2.5em;
+}
+
+#bomb-2::before {
+  font-size: 2.5em;
+}
+
+#bomb-3::before {
+  font-size: 2.5em;
+}
+
+#bomb-4::before {
+  font-size: 2.5em;
+}
+
+#bomb-5::before {
+  font-size: 2.5em;
+}
+
+#bomb-click-1 {
+  color: black;
+  padding: 10px;
+  top: 265px;
+  width: 25px;
+  margin-left: 12%;
+}
+
+#bomb-click-1::before {
+  font-size: 2.5em;
+}
+
+#bomb-click-2 {
+  color: black;
+  padding: 10px;
+  top: 265px;
+  width: 25px;
+  margin-left: 9%;
+}
+
+#bomb-click-2::before {
+  font-size: 2.5em;
+}
+
+#bomb-click-3 {
+  color: black;
+  padding: 10px;
+  top: 265px;
+  width: 25px;
+  margin-left: 6%;
+}
+
+#bomb-click-3::before {
+  font-size: 2.5em;
+}
+
+#bomb-click-4 {
+  color: black;
+  padding: 10px;
+  top: 265px;
+  width: 25px;
+  margin-left: 3%;
+}
+
+#bomb-click-4::before {
+  font-size: 2.5em;
+}
+
+#bomb-click-5 {
+  position: absolute;
+  padding: 10px;
+  top: 265px;
+  width: 25px;
+}
+
+#bomb-click-5::before {
+  font-size: 2.5em;
+}
+
+.bomb-display {
+  position: absolute;
+  padding-top: 5px;
+  padding-right: 10px;
+  left: 50%;
 }

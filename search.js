@@ -5,7 +5,7 @@ var businesses = [
     price: "$$$$",
     distance: "6.9 mi",
     phone: "(949)252-8848",
-    rating: "rating: 4",
+    rating: 4.6,
     review: "Butter on the steak!",
     keywords: "steak formal dinner bar drinks expensive date full service restaurant food dessert"},
 
@@ -15,7 +15,7 @@ var businesses = [
     price: "$$$$",
     distance: "5.2 mi",
     phone: "(714) 546-7405",
-    rating: "rating: 4",
+    rating: 4.2,
     review: "Great food, poor service.",
     keywords: "steak formal dinner bar drinks expensive date full service restaurant food dessert"},
 
@@ -25,7 +25,7 @@ var businesses = [
     price: "$$$$",
     distance: "5.7mi",
     phone: "(949) 640-7697",
-    rating: "rating: 4",
+    rating: 4.5,
     review: "My favorite place! Lobster potstickers...hello heaven!",
     keywords: "steak fish sushi lobster surf turf bar formal dinner expensive date full service restaurant food dessert"},
 
@@ -35,7 +35,7 @@ var businesses = [
     price: "$",
     distance: "0.7 mi",
     phone: "(949) 335-6800",
-    rating: "rating: 3",
+    rating: "rating: " + 3.8,
     review: "Is there even an interview here?",
     keywords: "tacos mexican southwest burritos salads fast takeout tortillas pork chicken beef food"},
 
@@ -46,7 +46,7 @@ var businesses = [
     price: "$$",
     distance: "1.2 mi",
     phone: "(949) 313-6333",
-    rating: "rating: 4",
+    rating: "rating: " + 4.2,
     review: "Yum. Yum. Yum. Yum",
     keywords: "pizza beer pasta takeout fast salads delivery food"},
 
@@ -56,7 +56,7 @@ var businesses = [
     price: "$$",
     distance: "0.4 mi",
     phone: "(949) 642-1142",
-    rating: "rating: 4",
+    rating: "rating: " + 3.6,
     review: "Bomb old school mexican. I think the whole family works there.",
     keywords: "mexican tacos margaritas burritos enchiladas taquitos tortillas full service mariachi restaurant food"},
 
@@ -66,7 +66,7 @@ var businesses = [
     price: "$",
     distance: "2.3 mi",
     phone: "(949) 631-1943",
-    rating: "rating: 2",
+    rating: "rating: " + 2.9,
     review: "There's homeless people outside, stick to the drive-thru.",
     keywords: "burgers fast drive-thru takeout fries ice cream cones food dessert"},
 
@@ -76,7 +76,7 @@ var businesses = [
     price: "$",
     distance: "1.3 mi",
     phone: "(800) 786-1000",
-    rating: "rating: 5",
+    rating: "rating: " + 4.1,
     review: "Best faast food burger on the west coast. Don't forget to get the shakes!",
     keywords: "burgers cheeseburgers fast fries shakes drive-thru takeout friendly food"},
 
@@ -86,7 +86,7 @@ var businesses = [
     price: "$$",
     distance: "0.7 mi",
     phone: "(949) 515-7400",
-    rating: "rating: 4",
+    rating: "rating: " + 3.8,
     review: "A MUST order is the spicy garlic edamame, I have had this other places but theirs was definitely the best I've had.",
     keywords: "sushi japanese nagiri sashimi sushi bar saki beer rolls teriyaki dinner restaurant food"},
 
@@ -96,7 +96,7 @@ var businesses = [
     price: "$$",
     distance: "2.7 mi",
     phone: "(949) 220-9001",
-    rating: "rating: 5",
+    rating: "rating: " + 5,
     review: "But as a meat eater is shocking to hear my self say my favorite was the veggie summer zephyr.",
     keywords: "sandwiches deli toast chips takeout breakfast lunch dinner food"},
 
@@ -106,7 +106,7 @@ var businesses = [
     price: "$$",
     distance: "1.7 mi",
     phone: "(949) 722-7586",
-    rating: "rating: 4",
+    rating: "rating: " + 4.7,
     review: "It was ok... After we sat down and started to read the reviews here at Yelp, we were afraid we were in for a long wait.",
     keywords: "breakfast brunch grits pancakes eggs french toast omlettes service restaurant coffee food dessert"},
 
@@ -116,7 +116,7 @@ var businesses = [
     price: "$$",
     distance: "1.9 mi",
     phone: "(949) 642-9424",
-    rating: "rating: 4",
+    rating: "rating: " + 3.5,
     review: "It used to be an Ihop and still has a lot of the same touches but is MUCH cleaner.",
     keywords: "breakfast brunch grits pancakes eggs french toast omlettes service restaurant coffee food"},
 
@@ -126,7 +126,7 @@ var businesses = [
     price: "$$",
     distance: "1.8 mi",
     phone: "(949) 873-5424",
-    rating: "rating: 4.5",
+    rating: "rating: " + 4,
     review: "My favorites are: banana puddin, coconut, peach & amaretti, blueberry cheesecake, and their vanilla twist.",
     keywords: "breakfast brunch donuts coffee gourmet cronuts croissants fast takeout early food dessert"},
 
@@ -136,7 +136,7 @@ var businesses = [
     price: "$$",
     distance: "1 mi",
     phone: "(949) 631-1992",
-    rating: "rating: 2",
+    rating: "rating: " + 3.1,
     review: "Never again will I order pizza from Pizza Hut - it's disgusting anyways!",
     keywords: "pizza delivery chicken wings buffalo pepsi salads breadsticks garlic bread food"},
 
@@ -144,7 +144,7 @@ var businesses = [
     name: "Tandoori Fresh",
     address: "1500 Adams Ave, Ste 100A, Costa Mesa, CA 92626",
     price: "$$",
-    distance: "2.3 mi",
+    distance: "rating: " + 3.8,
     phone: "(714) 444-4407",
     rating: "rating: 4",
     review: "The lunch special is a great value for what you get (meat, vegetable, rice, naan and a drink) all for under $12.00",
@@ -577,6 +577,11 @@ function renderReview(item) {
   content.setAttribute("class", "feedback-content");
   content.setAttribute("id", item.id);
 
+  var quickRate = document.createElement("div");
+  quickRate.setAttribute("class", "quick-rate");
+  quickRate.textContent = "How bomb is this place?:";
+  content.appendChild(quickRate);
+
   var close = document.createElement("span");
   close.setAttribute("class", "close");
   close.setAttribute("id", item.id);
@@ -584,7 +589,7 @@ function renderReview(item) {
   content.appendChild(close);
 
   var post = document.createElement("span");
-  post.setAttribute("class", "post");
+  post.setAttribute("class", "disabled");
   post.setAttribute("id", item.id);
   post.textContent = "Post";
   content.appendChild(post);
@@ -594,12 +599,44 @@ function renderReview(item) {
   ratingBox.setAttribute("id", item.id);
   content.appendChild(ratingBox);
 
-  var enterRating = document.createElement("input");
-  enterRating.setAttribute("type", "text");
-  enterRating.setAttribute("placeholder", "Enter a rating, value: 1 - 5");
-  enterRating.setAttribute("id", "enter-feedback");
-  enterRating.textContent = "Enter a rating";
-  ratingBox.appendChild(enterRating);
+  var bombBox = document.createElement("div");
+  bombBox.setAttribute("class", "bomb-box");
+  ratingBox.appendChild(bombBox);
+
+  var bomb1 = document.createElement("i");
+  bomb1.setAttribute("class", "fa fa-bomb 1");
+  bomb1.setAttribute("aria-hidden", "true");
+  bomb1.setAttribute("id", "bomb-1");
+  bomb1.setAttribute("data-id", item.id);
+  bombBox.appendChild(bomb1);
+
+  var bomb2 = document.createElement("i");
+  bomb2.setAttribute("class", "fa fa-bomb 2");
+  bomb2.setAttribute("aria-hidden", "true");
+  bomb2.setAttribute("id", "bomb-2");
+  bomb2.setAttribute("data-id", item.id);
+  bombBox.appendChild(bomb2);
+
+  var bomb3 = document.createElement("i");
+  bomb3.setAttribute("class", "fa fa-bomb 3");
+  bomb3.setAttribute("aria-hidden", "true");
+  bomb3.setAttribute("id", "bomb-3");
+  bomb3.setAttribute("data-id", item.id);
+  bombBox.appendChild(bomb3);
+
+  var bomb4 = document.createElement("i");
+  bomb4.setAttribute("class", "fa fa-bomb 4");
+  bomb4.setAttribute("aria-hidden", "true");
+  bomb4.setAttribute("id", "bomb-4");
+  bomb4.setAttribute("data-id", item.id);
+  bombBox.appendChild(bomb4);
+
+  var bomb5 = document.createElement("i");
+  bomb5.setAttribute("class", "fa fa-bomb 5");
+  bomb5.setAttribute("aria-hidden", "true");
+  bomb5.setAttribute("id", "bomb-5");
+  bomb5.setAttribute("data-id", item.id);
+  bombBox.appendChild(bomb5);
 
   var reviewBox = document.createElement("div");
   reviewBox.setAttribute("class", "box-2");
@@ -608,7 +645,7 @@ function renderReview(item) {
 
   var reviewText = document.createElement("input");
   reviewText.setAttribute("id", "feedback-text");
-  reviewText.setAttribute("placeholder", "Enter your review here..");
+  reviewText.setAttribute("placeholder", "Write your feedback here...");
   reviewText.setAttribute("type", "text");
   reviewBox.appendChild(reviewText);
 
@@ -626,17 +663,87 @@ function emptyClose() {
   image.setAttribute("class", "biz-image");
 }
 
-//event listener for close button
-content.addEventListener("click", function(e) {
-  var clickEvent = e.target.className.indexOf("close");
-  if (clickEvent !== -1) {
-    emptyClose();
-  }
-  return
-});
-
 //new data array
-var reviews = []
+var reviews = [
+  { revid: 1,
+    bombs: 4,
+    review: "1 - This place exists and is a business. That is all."},
+  { revid: 2,
+    bombs: 4,
+    review: "2 - This place exists and is a business. That is all."},
+  { revid: 3,
+    bombs: 4,
+    review: "3 - This place exists and is a business. That is all."},
+  { revid: 4,
+    bombs: 4,
+    review: "4 - This place exists and is a business. That is all."},
+  { revid: 5,
+    bombs: 4,
+    review: "5 - This place exists and is a business. That is all."},
+  { revid: 6,
+    bombs: 4,
+    review: "6 - This place exists and is a business. That is all."},
+  { revid: 7,
+    bombs: 4,
+    review: "7 - This place exists and is a business. That is all."},
+  { revid: 8,
+    bombs: 4,
+    review: "8 - This place exists and is a business. That is all."},
+  { revid: 9,
+    bombs: 4,
+    review: "9 - This place exists and is a business. That is all."},
+  { revid: 10,
+    bombs: 4,
+    review: "10 - This place exists and is a business. That is all."},
+  { revid: 11,
+    bombs: 4,
+    review: "11 - This place exists and is a business. That is all."},
+  { revid: 12,
+    bombs: 4,
+    review: "12 - This place exists and is a business. That is all."},
+  { revid: 13,
+    bombs: 4,
+    review: "13 - This place exists and is a business. That is all."},
+  { revid: 14,
+    bombs: 4,
+    review: "14 - This place exists and is a business. That is all."},
+  { revid: 15,
+    bombs: 4,
+    review: "15 - This place exists and is a business. That is all."}
+]
+
+//bomb-rating a business
+function bombSave (reviews) {
+  var feedback = document.querySelector(".recent-feedback");
+  var setId = feedback.getAttribute("id");
+  var reviewVal = document.getElementById("feedback-text").value;
+  var bomb1 = document.getElementById("bomb-1");
+  var bomb2 = document.getElementById("bomb-2");
+  var bomb3 = document.getElementById("bomb-3");
+  var bomb4 = document.getElementById("bomb-4");
+  var bomb5 = document.getElementById("bomb-5");
+  var bombVal;
+  if (!bomb5 && bomb4) {
+    bombVal = 1
+    reviews.push({revid: setId, bombs: bombVal, review: reviewVal});
+  }
+  if (!bomb4 && bomb3) {
+    bombVal = 2
+    reviews.push({revid: setId, bombs: bombVal, review: reviewVal});
+  }
+  if (!bomb3 && bomb2) {
+    bombVal = 3
+    reviews.push({revid: setId, bombs: bombVal, review: reviewVal});
+  }
+  if (!bomb2 && bomb1) {
+    bombVal = 4
+    reviews.push({revid: setId, bombs: bombVal, review: reviewVal});
+  }
+  if (!bomb1) {
+    bombVal = 5
+    reviews.push({revid: setId, bombs: bombVal, review: reviewVal});
+  }
+}
 
 //function is no value is entered
 function noReview() {
@@ -645,14 +752,6 @@ function noReview() {
   reviewWarn.setAttribute("id", "feedback-warning");
   reviewWarn.textContent= "Must enter a review.";
   reviewBox.appendChild(reviewWarn);
-}
-
-function noRating() {
-  var ratingWarn = document.createElement("span");
-  var ratingBox = document.querySelector(".box")
-  ratingWarn.setAttribute("class", "star-warning");
-  ratingWarn.textContent = "Must enter a rating.";
-  ratingBox.appendChild(ratingWarn);
 }
 
 function checkLength() {
@@ -664,15 +763,10 @@ function checkLength() {
 }
 
 function removeWarnings() {
-  var starWarning = document.querySelector(".star-warning");
   var reviewWarning = document.getElementById("feedback-warning");
   var lengthWarning = document.getElementById("length");
-  if (starWarning) {
-    starWarning.parentNode.removeChild(starWarning);
-  }
-  else if (reviewWarning) {
+  if (reviewWarning) {
     reviewWarning.parentNode.removeChild(reviewWarning);
-
   }
   else if (lengthWarning) {
     lengthWarning.parentNode.removeChild(lengthWarning);
@@ -681,33 +775,6 @@ function removeWarnings() {
     return
   }
 }
-
-//event listener for post button
-content.addEventListener("click", function(e) {
-  var clickEvent = e.target.className.indexOf("post");
-  if (clickEvent === -1) {
-    return;
-  }
-
-  removeWarnings();
-  var ratingVal = parseInt(document.getElementById("enter-feedback").value);
-  var reviewVal = document.getElementById("feedback-text").value;
-  if (ratingVal.length && reviewVal.length === 0) {
-    noRating(); return
-  }
-  else if (isNaN(ratingVal)) {
-    noRating(); return
-  }
-  else if (reviewVal.length === 0) {
-    noReview(); return
-  }
-  else if (reviewVal.length < 10) {
-    checkLength(); return
-  }
-  else {
-    renderFeedback();
-  }
-});
 
 //removing review box when rendering review
 function removeInputs() {
@@ -733,22 +800,22 @@ function emptyConfirm() {
 
 //displaying data on business detail page
 function renderFeedback() {
-  //push values to the reviews array
-  var feedback = document.querySelector(".recent-feedback");
-  var setId = feedback.getAttribute("id");
-  var ratingVal = document.getElementById("enter-feedback").value;
-  var reviewVal = document.getElementById("feedback-text").value;
-  reviews.push({id: setId, rating: ratingVal, review: reviewVal});
-
   //capture most recent review and timestamp it
   var currentReview = reviews[reviews.length - 1].review;
+  var bombRating = reviews[reviews.length - 1].bombs;
+  console.log(bombRating);
   var stamp = timeStamp();
 
   //display new feedback
   var newFeedback = document.createElement("div");
   newFeedback.setAttribute("class", "new-feedback");
   newFeedback.textContent = '"' + currentReview + '"';
+  var feedback = document.querySelector(".recent-feedback");
   feedback.parentNode.insertBefore(newFeedback, feedback.nextSibling);
+  var bombs = document.createElement("span");
+  bombs.setAttribute("class", "bomb-display");
+  bombs.textContent = "rating: " + bombRating;
+  newFeedback.appendChild(bombs)
   var stampDisplay = document.createElement("span");
   stampDisplay.setAttribute("class", "stamp")
   stampDisplay.textContent = stamp;
@@ -762,6 +829,8 @@ function renderFeedback() {
   image.setAttribute("class", "biz-image");
   var writeReview = document.querySelector(".write");
   writeReview.textContent = "Write a review";
+
+  //'review added' confirmation notice
   var reviewConfirm = document.createElement("span");
   reviewConfirm.setAttribute("class", "confirm");
   reviewConfirm.textContent = "Review Added!";
@@ -782,4 +851,129 @@ function timeStamp() {
     }
   }
   return date.join("/") + " " + time.join(":") + " " + suffix;
+}
+
+//event listener for bombs
+content.addEventListener("click", function(e) {
+  if (e.target.id.indexOf("bomb-1") !== -1) {
+    console.log(e.target.id.indexOf("bomb-1"));
+    var bomb1 = document.getElementById("bomb-1");
+    bomb1.setAttribute("id", "bomb-click-1");
+    var bomb2 = document.getElementById("bomb-2");
+    bomb2.setAttribute("id", "bomb-click-2");
+    var bomb3 = document.getElementById("bomb-3");
+    bomb3.setAttribute("id", "bomb-click-3");
+    var bomb4 = document.getElementById("bomb-4");
+    bomb4.setAttribute("id", "bomb-click-4");
+    var bomb5 = document.getElementById("bomb-5");
+    bomb5.setAttribute("id", "bomb-click-5");
+    var post = document.querySelector(".disabled");
+    post.setAttribute("class", "post");
+  }
+
+  if (e.target.id.indexOf("bomb-2") !== -1) {
+    console.log(e.target.id.indexOf("bomb-2"));
+    var bomb2 = document.getElementById("bomb-2");
+    bomb2.setAttribute("id", "bomb-click-2");
+    var bomb3 = document.getElementById("bomb-3");
+    bomb3.setAttribute("id", "bomb-click-3");
+    var bomb4 = document.getElementById("bomb-4");
+    bomb4.setAttribute("id", "bomb-click-4");
+    var bomb5 = document.getElementById("bomb-5");
+    bomb5.setAttribute("id", "bomb-click-5");
+    var post = document.querySelector(".disabled");
+    post.setAttribute("class", "post");
+  }
+
+  if (e.target.id.indexOf("bomb-3") !== -1) {
+    console.log(e.target.id.indexOf("bomb-3"));
+    var bomb3 = document.getElementById("bomb-3");
+    bomb3.setAttribute("id", "bomb-click-3");
+    var bomb4 = document.getElementById("bomb-4");
+    bomb4.setAttribute("id", "bomb-click-4");
+    var bomb5 = document.getElementById("bomb-5");
+    bomb5.setAttribute("id", "bomb-click-5");
+    var post = document.querySelector(".disabled");
+    post.setAttribute("class", "post");
+  }
+
+  if (e.target.id.indexOf("bomb-4") !== -1) {
+    console.log(e.target.id.indexOf("bomb-4"));
+    var bomb4 = document.getElementById("bomb-4");
+    bomb4.setAttribute("id", "bomb-click-4");
+    var bomb5 = document.getElementById("bomb-5");
+    bomb5.setAttribute("id", "bomb-click-5");
+    var post = document.querySelector(".disabled");
+    post.setAttribute("class", "post");
+  }
+
+  if (e.target.id.indexOf("bomb-5") !== -1) {
+    console.log(e.target.id.indexOf("bomb-1"));
+    var bomb5 = document.getElementById("bomb-5");
+    bomb5.setAttribute("id", "bomb-click-5");
+    var post = document.querySelector(".disabled");
+    post.setAttribute("class", "post");
+  }
+})
+
+//event listener for close button
+content.addEventListener("click", function(e) {
+  var clickEvent = e.target.className.indexOf("close");
+  if (clickEvent !== -1) {
+    emptyClose();
+  }
+  return
+});
+
+//event listener for post button
+content.addEventListener("click", function(e) {
+  var clickEvent = e.target.className.indexOf("post");
+  if (clickEvent === -1) {
+    return;
+  }
+
+  removeWarnings();
+  var reviewVal = document.getElementById("feedback-text").value;
+  if (reviewVal.length === 0) {
+    noReview(); return;
+  }
+  else if (reviewVal.length < 10) {
+    checkLength(); return;
+  }
+  else {
+    var id = e.target.getAttribute("id");
+    bombSave(reviews, id);
+    renderFeedback();
+    updateAverage(id, businesses, averageReview(businessReviews(id)));
+  }
+});
+
+//updating total business rating as average of individual ratings
+function businessReviews(id) {
+  var matches = [];
+  for (var i = 0; i < reviews.length; i++ ) {
+    if (reviews[i].revid == id) {
+      matches.push(reviews[i]);
+    }
+  }
+  return matches;
+}
+
+function averageReview(reviews) {
+  var accumlation = 0;
+  for (var i = 0; i < reviews.length; i++) {
+    accumlation += reviews[i].bombs;
+  }
+  var average = accumlation / reviews.length;
+  return average;
+}
+
+function updateAverage(id, businesses, rating) {
+  for (var i = 0; i < businesses.length; i++) {
+    if (businesses[i].id == id) {
+      businesses[i].rating = rating;
+      var bombDisplay = document.querySelector(".stars");
+      bombDisplay.textContent = rating;
+    }
+  }
 }
