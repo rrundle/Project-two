@@ -342,7 +342,7 @@ img {
   border-radius: 3px;
   margin: 15px auto;
   font-size: 1.2em;
-  padding:10px 5px 300px 5px;
+  padding:10px 0px 300px 10px;
 }
 
 #feedback-text::-webkit-input-placeholder {
@@ -368,20 +368,24 @@ img {
 }
 
 .quick-rate {
-  width: 20%;
+  width: 100%;
   height: 30px;
-  margin: auto;
-  padding: auto;
+  text-align: center;
+  border-bottom: solid 1px #D0D0D0;
+  color: black;
+  font-weight: bold;
+  margin-bottom: 30px;
+  font-size: 1.2em
 }
 
 .close {
-  margin: 20px 0px 20px 0px;
+  margin: 30px 0px 30px 0px;
   padding: 20px 0px;
   font-size: 1.2em;
   font-weight: bold;
 }
 
-.post-disabled {
+.disabled {
   float: right;
   font-size: 1.2em;
   font-weight: bold;
@@ -419,6 +423,8 @@ img {
 #length {
   width: 100%;
   height: 40px;
+  color: #CF0814;
+  font-weight: bold;
 }
 
 .confirm {
@@ -437,7 +443,7 @@ img {
   0% {
     opacity: 0;
   }
-  20% {
+  23% {
     opacity: 1;
   }
   84% {
@@ -491,18 +497,15 @@ img {
   padding-right: 10px;
 }
 
-.quick-rate {
-  left: 13%;
-  position: absolute;;
-  color: black;
-  top: 190px;
-  font-weight: bold;
+.box {
+  width: 100%;
+  height: 10px;
 }
 
 .bomb-box {
   height: 40px;
-  width: 225px;
-  margin: auto;
+  width: 221px;
+  margin: 0px auto;
 }
 
 .fa-bomb {
@@ -511,32 +514,41 @@ img {
   width: 1em;
 }
 
-.fa-bomb:hover:before, .fa-bomb:hover ~ .fa-bomb:before {
+.fa-bomb:hover:before,
+.fa-bomb:hover ~ .fa-bomb:before  {
   content: "<i class="fa fa-bomb" aria-hidden="true"></i>";
   position: absolute;
   color: black;
   cursor: pointer;
 }
 
+.fa-bomb:hover ~ .fa-bomb {
+  content: "<i class="fa fa-bomb" aria-hidden="true"></i>";
+  position: absolute;;
+  color: #D0D0D0;
+  cursor: pointer;
+}
+
 #bomb-1 {
   color: #D0D0D0;
   padding: 10px;
-  top: 235px;
+  top: 265px;
   width: 25px;
+  margin-left: 12%;
 }
 
 #bomb-2 {
   color: #D0D0D0;
   padding: 10px;
-  top: 235px;
+  top: 265px;
   width: 25px;
-  margin-left: 3%;
+  margin-left: 9%;
 }
 
 #bomb-3 {
   color: #D0D0D0;
   padding: 10px;
-  top: 235px;
+  top: 265px;
   width: 25px;
   margin-left: 6%;
 }
@@ -544,100 +556,100 @@ img {
 #bomb-4 {
   color: #D0D0D0;
   padding: 10px;
-  top: 235px;
+  top: 265px;
   width: 25px;
-  margin-left: 9%;
+  margin-left: 3%;
 }
 
 #bomb-5 {
   color: #D0D0D0;
   padding: 10px;
-  top: 235px;
+  top: 265px;
   width: 25px;
-  margin-left: 12%;
 }
 
 #bomb-1::before {
-  font-size: 2em;
+  font-size: 2.5em;
 }
 
 #bomb-2::before {
-  font-size: 2em;
+  font-size: 2.5em;
 }
 
 #bomb-3::before {
-  font-size: 2em;
+  font-size: 2.5em;
 }
 
 #bomb-4::before {
-  font-size: 2em;
+  font-size: 2.5em;
 }
 
 #bomb-5::before {
-  font-size: 2em;
+  font-size: 2.5em;
 }
 
 #bomb-click-1 {
   color: black;
-  position: absolute;
-  left: 12.5%;
   padding: 10px;
-  top: 235px;
+  top: 265px;
   width: 25px;
+  margin-left: 12%;
 }
 
-#bomb-click-1:before {
-  font-size: 2em;
+#bomb-click-1::before {
+  font-size: 2.5em;
 }
 
 #bomb-click-2 {
   color: black;
-  position: absolute;
-  left: 15.5%;
   padding: 10px;
-  top: 235px;
+  top: 265px;
   width: 25px;
+  margin-left: 9%;
 }
 
-#bomb-click-2:before {
-  font-size: 2em;
+#bomb-click-2::before {
+  font-size: 2.5em;
 }
 
 #bomb-click-3 {
   color: black;
-  position: absolute;
-  left: 18.5%;
   padding: 10px;
-  top: 235px;
+  top: 265px;
   width: 25px;
+  margin-left: 6%;
 }
 
-#bomb-click-3:before {
-  font-size: 2em;
+#bomb-click-3::before {
+  font-size: 2.5em;
 }
 
 #bomb-click-4 {
   color: black;
-  position: absolute;
-  left: 21.5%;
   padding: 10px;
-  top: 235px;
+  top: 265px;
   width: 25px;
+  margin-left: 3%;
 }
 
-#bomb-click-4:before {
-  font-size: 2em;
+#bomb-click-4::before {
+  font-size: 2.5em;
 }
 
 #bomb-click-5 {
-  color: black;
   position: absolute;
-  left: 24.5%;
   padding: 10px;
-  top: 235px;
+  top: 265px;
   width: 25px;
 }
 
-#bomb-click-5:before {
-  font-size: 2em;
+#bomb-click-5::before {
+  font-size: 2.5em;
+}
+
+.bomb-display {
+  position: absolute;
+  padding-top: 5px;
+  padding-right: 10px;
+  left: 50%;
 }
