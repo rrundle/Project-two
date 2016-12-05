@@ -726,27 +726,22 @@ function bombSave (reviews) {
   if (!bomb5 && bomb4) {
     bombVal = 1
     reviews.push({revid: setId, bombs: bombVal, review: reviewVal});
-    console.log(reviews);
   }
   if (!bomb4 && bomb3) {
     bombVal = 2
     reviews.push({revid: setId, bombs: bombVal, review: reviewVal});
-    console.log(reviews);
   }
   if (!bomb3 && bomb2) {
     bombVal = 3
     reviews.push({revid: setId, bombs: bombVal, review: reviewVal});
-    console.log(reviews);
   }
   if (!bomb2 && bomb1) {
     bombVal = 4
     reviews.push({revid: setId, bombs: bombVal, review: reviewVal});
-    console.log(reviews);
   }
   if (!bomb1) {
     bombVal = 5
     reviews.push({revid: setId, bombs: bombVal, review: reviewVal});
-    console.log(reviews);
   }
 }
 
@@ -940,17 +935,16 @@ content.addEventListener("click", function(e) {
   removeWarnings();
   var reviewVal = document.getElementById("feedback-text").value;
   if (reviewVal.length === 0) {
-    noReview(); return
+    noReview(); return;
   }
   else if (reviewVal.length < 10) {
-    checkLength(); return
+    checkLength(); return;
   }
   else {
     var id = e.target.getAttribute("id");
     bombSave(reviews, id);
     renderFeedback();
     updateAverage(id, businesses, averageReview(businessReviews(id)));
-    console.log(businesses);
   }
 });
 
