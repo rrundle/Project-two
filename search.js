@@ -965,7 +965,7 @@ content.addEventListener("click", function(e) {
   if (clickEvent !== -1) {
     emptyClose();
   }
-  return
+  return;
 });
 
 //event listener for post button
