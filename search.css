@@ -108,7 +108,7 @@ img {
 }
 
 .rating {
-  width: 60px;
+  width: 200px;
   float: right;
 }
 
@@ -146,10 +146,10 @@ img {
   font-size: 1em;
 }
 
-.stars {
-  left: 0px;
-  margin: 15px 0px 30px 0px;
-  padding-bottom: 15px;
+.stars-sub {
+  width: 100%;
+  height: 44px;
+  margin-bottom: 40px;
 }
 
 .cost {
@@ -276,6 +276,15 @@ img {
   border-bottom: solid 1px gray;
   padding-bottom: 15px;
   font-size: 1.2em;
+  clear: both;
+}
+
+.local-rev {
+  margin-top: 450px;
+  margin-bottom: 15px;
+  border-bottom: solid 1px gray;
+  padding-bottom: 15px;
+  font-size: 1.2em;
 }
 
 .biz-directions {
@@ -365,17 +374,20 @@ img {
 .feedback-content {
   margin: 20px 0px;
   padding-top: 15px;
+  z-index: 10;
 }
 
 .quick-rate {
-  width: 100%;
+  width: 25%;
   height: 30px;
-  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   border-bottom: solid 1px #D0D0D0;
   color: black;
   font-weight: bold;
   margin-bottom: 30px;
-  font-size: 1.2em
+  font-size: 1.2em;
+  text-align: center;
 }
 
 .close {
@@ -455,7 +467,7 @@ img {
 }
 
 .new-feedback {
-  height: 50px;
+  height: 65px;
   border: solid 1px #D0D0D0;
   border-radius: 3px;
   margin: 0px 0px 30px 0px;
@@ -532,7 +544,7 @@ img {
 #bomb-1 {
   color: #D0D0D0;
   padding: 10px;
-  top: 265px;
+  top: 230px;
   width: 25px;
   margin-left: 12%;
 }
@@ -540,7 +552,7 @@ img {
 #bomb-2 {
   color: #D0D0D0;
   padding: 10px;
-  top: 265px;
+  top: 230px;
   width: 25px;
   margin-left: 9%;
 }
@@ -548,7 +560,7 @@ img {
 #bomb-3 {
   color: #D0D0D0;
   padding: 10px;
-  top: 265px;
+  top: 230px;
   width: 25px;
   margin-left: 6%;
 }
@@ -556,7 +568,7 @@ img {
 #bomb-4 {
   color: #D0D0D0;
   padding: 10px;
-  top: 265px;
+  top: 230px;
   width: 25px;
   margin-left: 3%;
 }
@@ -564,7 +576,7 @@ img {
 #bomb-5 {
   color: #D0D0D0;
   padding: 10px;
-  top: 265px;
+  top: 230px;
   width: 25px;
 }
 
@@ -591,7 +603,7 @@ img {
 #bomb-click-1 {
   color: black;
   padding: 10px;
-  top: 265px;
+  top: 230px;
   width: 25px;
   margin-left: 12%;
 }
@@ -603,7 +615,7 @@ img {
 #bomb-click-2 {
   color: black;
   padding: 10px;
-  top: 265px;
+  top: 230px;
   width: 25px;
   margin-left: 9%;
 }
@@ -615,7 +627,7 @@ img {
 #bomb-click-3 {
   color: black;
   padding: 10px;
-  top: 265px;
+  top: 230px;
   width: 25px;
   margin-left: 6%;
 }
@@ -627,7 +639,7 @@ img {
 #bomb-click-4 {
   color: black;
   padding: 10px;
-  top: 265px;
+  top: 230px;
   width: 25px;
   margin-left: 3%;
 }
@@ -639,7 +651,7 @@ img {
 #bomb-click-5 {
   position: absolute;
   padding: 10px;
-  top: 265px;
+  top: 230px;
   width: 25px;
 }
 
@@ -647,9 +659,245 @@ img {
   font-size: 2.5em;
 }
 
-.bomb-display {
+.new-feedback > [data-class="one-bomb"] {
   position: absolute;
-  padding-top: 5px;
-  padding-right: 10px;
-  left: 50%;
+  left: 45%;
+  width: 12.5%;
+  float: right;
+  height: 42px;
+  background-image: url("http://i.imgur.com/0yErU6e.png");
+  background-size: 100%;
+}
+
+.new-feedback > [data-class="one-five-bomb"] {
+  position: absolute;
+  left: 45%;
+  width: 12.5%;
+  float: right;
+  height: 42px;
+  background-image: url("http://i.imgur.com/um5FYSE.png");
+  background-size: 100%;
+}
+
+.new-feedback > [data-class="two-bomb"] {
+  position: absolute;
+  left: 45%;
+  width: 12.5%;
+  float: right;
+  height: 42px;
+  background-image: url("http://i.imgur.com/JE4aItt.png");
+  background-size: 100%;
+}
+
+.new-feedback > [data-class="two-five-bomb"] {
+  position: absolute;
+  left: 45%;
+  width: 12.5%;
+  float: right;
+  height: 42px;
+  background-image: url("http://i.imgur.com/AhgQOVC.png");
+  background-size: 100%;
+}
+
+.new-feedback > [data-class="three-bomb"] {
+  position: absolute;
+  left: 45%;
+  width: 12.5%;
+  float: right;
+  height: 42px;
+  background-image: url("http://i.imgur.com/NJi9JKa.png");
+  background-size: 100%;
+}
+
+.new-feedback > [data-class="three-five-bomb"] {
+  position: absolute;
+  left: 45%;
+  width: 12.5%;
+  float: right;
+  height: 42px;
+  background-image: url("http://i.imgur.com/Jl9H8zO.png");
+  background-size: 100%;
+}
+
+.new-feedback > [data-class="four-bomb"] {
+  position: absolute;
+  left: 45%;
+  width: 12.5%;
+  float: right;
+  height: 42px;
+  background-image: url("http://i.imgur.com/LluOzL6.png");
+  background-size: 100%;
+}
+
+.new-feedback > [data-class="four-five-bomb"] {
+  position: absolute;
+  left: 45%;
+  width: 12.5%;
+  float: right;
+  height: 42px;
+  background-image: url("http://i.imgur.com/0yErU6e.png");
+  background-size: 100%;
+}
+
+.new-feedback > [data-class="five-bomb"] {
+  position: absolute;
+  left: 45%;
+  width: 12.5%;
+  float: right;
+  height: 42px;
+  background-image: url("http://i.imgur.com/9BHXUNP.png");
+  background-size: 100%;
+}
+
+.business > [data-class="one-bomb"] {
+  width: 17.5%;
+  float: right;
+  height: 42px;
+  background-image: url("http://i.imgur.com/0yErU6e.png");
+  background-size: 100%;
+}
+
+.business > [data-class="one-five-bomb"] {
+  width: 17.5%;
+  float: right;
+  height: 42px;
+  background-image: url("http://i.imgur.com/um5FYSE.png");
+  background-size: 100%;
+}
+
+.business > [data-class="two-bomb"] {
+  width: 17.5%;
+  float: right;
+  height: 42px;
+  background-image: url("http://i.imgur.com/JE4aItt.png");
+  background-size: 100%;
+}
+
+.business > [data-class="two-five-bomb"] {
+  width: 17.5%;
+  float: right;
+  height: 42px;
+  background-image: url("http://i.imgur.com/AhgQOVC.png");
+  background-size: 100%;
+}
+
+.business > [data-class="three-bomb"] {
+  width: 17.5%;
+  float: right;
+  height: 42px;
+  background-image: url("http://i.imgur.com/NJi9JKa.png");
+  background-size: 100%;
+}
+
+.business > [data-class="three-five-bomb"] {
+  width: 17.5%;
+  float: right;
+  height: 42px;
+  background-image: url("http://i.imgur.com/Jl9H8zO.png");
+  background-size: 100%;
+}
+
+.business > [data-class="four-bomb"] {
+  width: 17.5%;
+  float: right;
+  height: 42px;
+  background-image: url("http://i.imgur.com/LluOzL6.png");
+  background-size: 100%;
+}
+
+.business > [data-class="four-five-bomb"] {
+  width: 17.5%;
+  float: right;
+  height: 42px;
+  background-image: url("http://i.imgur.com/1poiITQ.png");
+  background-size: 100%;
+}
+
+.business > [data-class="five-bomb"] {
+  width: 17.5%;
+  float: right;
+  height: 42px;
+  background-image: url("http://i.imgur.com/9BHXUNP.png");
+  background-size: 100%;
+}
+
+[data-class="one-bomb"] {
+  width: 17.5%;
+  float: left;
+  height: 44px;
+  background-image: url("http://i.imgur.com/0yErU6e.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+[data-class="one-five-bomb"] {
+  width: 17.5%;
+  float: left;
+  height: 44px;
+  background-image: url("http://i.imgur.com/um5FYSE.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+[data-class="two-bomb"] {
+  width: 17.5%;
+  float: left;
+  height: 44px;
+  background-image: url("http://i.imgur.com/JE4aItt.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+[data-class="two-five-bomb"] {
+  width: 17.5%;
+  float: left;
+  height: 55px;
+  background-image: url("http://i.imgur.com/AhgQOVC.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+[data-class="three-bomb"] {
+  width: 17.5%;
+  float: left;
+  height: 44px;
+  background-image: url("http://i.imgur.com/NJi9JKa.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+[data-class="three-five-bomb"] {
+  width: 17.5%;
+  float: left;
+  height: 44px;
+  background-image: url("http://i.imgur.com/Jl9H8zO.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+[data-class="four-bomb"] {
+  width: 17.5%;
+  float: left;
+  height: 44px;
+  background-image: url("http://i.imgur.com/LluOzL6.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+[data-class="four-five-bomb"] {
+  width: 17.5%;
+  float: left;
+  height: 44px;
+  background-image: url("http://i.imgur.com/1poiITQ.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+[data-class="five-bomb"] {
+  width: 17.5%;
+  float: left;
+  height: 44px;
+  background-image: url("http://i.imgur.com/9BHXUNP.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
