@@ -35,7 +35,7 @@ var businesses = [
     price: "$",
     distance: "0.7 mi",
     phone: "(949) 335-6800",
-    rating: "rating: " + 3.8,
+    rating: 3.8,
     review: "Is there even an interview here?",
     keywords: "tacos mexican southwest burritos salads fast takeout tortillas pork chicken beef food"},
 
@@ -46,7 +46,7 @@ var businesses = [
     price: "$$",
     distance: "1.2 mi",
     phone: "(949) 313-6333",
-    rating: "rating: " + 4.2,
+    rating: 4.2,
     review: "Yum. Yum. Yum. Yum",
     keywords: "pizza beer pasta takeout fast salads delivery food"},
 
@@ -56,7 +56,7 @@ var businesses = [
     price: "$$",
     distance: "0.4 mi",
     phone: "(949) 642-1142",
-    rating: "rating: " + 3.6,
+    rating: 3.6,
     review: "Bomb old school mexican. I think the whole family works there.",
     keywords: "mexican tacos margaritas burritos enchiladas taquitos tortillas full service mariachi restaurant food"},
 
@@ -66,7 +66,7 @@ var businesses = [
     price: "$",
     distance: "2.3 mi",
     phone: "(949) 631-1943",
-    rating: "rating: " + 2.9,
+    rating: 2.6,
     review: "There's homeless people outside, stick to the drive-thru.",
     keywords: "burgers fast drive-thru takeout fries ice cream cones food dessert"},
 
@@ -76,7 +76,7 @@ var businesses = [
     price: "$",
     distance: "1.3 mi",
     phone: "(800) 786-1000",
-    rating: "rating: " + 4.1,
+    rating: 4.1,
     review: "Best faast food burger on the west coast. Don't forget to get the shakes!",
     keywords: "burgers cheeseburgers fast fries shakes drive-thru takeout friendly food"},
 
@@ -86,7 +86,7 @@ var businesses = [
     price: "$$",
     distance: "0.7 mi",
     phone: "(949) 515-7400",
-    rating: "rating: " + 3.8,
+    rating: 3.8,
     review: "A MUST order is the spicy garlic edamame, I have had this other places but theirs was definitely the best I've had.",
     keywords: "sushi japanese nagiri sashimi sushi bar saki beer rolls teriyaki dinner restaurant food"},
 
@@ -96,7 +96,7 @@ var businesses = [
     price: "$$",
     distance: "2.7 mi",
     phone: "(949) 220-9001",
-    rating: "rating: " + 5,
+    rating: 4.3,
     review: "But as a meat eater is shocking to hear my self say my favorite was the veggie summer zephyr.",
     keywords: "sandwiches deli toast chips takeout breakfast lunch dinner food"},
 
@@ -106,7 +106,7 @@ var businesses = [
     price: "$$",
     distance: "1.7 mi",
     phone: "(949) 722-7586",
-    rating: "rating: " + 4.7,
+    rating: 4.7,
     review: "It was ok... After we sat down and started to read the reviews here at Yelp, we were afraid we were in for a long wait.",
     keywords: "breakfast brunch grits pancakes eggs french toast omlettes service restaurant coffee food dessert"},
 
@@ -116,7 +116,7 @@ var businesses = [
     price: "$$",
     distance: "1.9 mi",
     phone: "(949) 642-9424",
-    rating: "rating: " + 3.5,
+    rating: 3.5,
     review: "It used to be an Ihop and still has a lot of the same touches but is MUCH cleaner.",
     keywords: "breakfast brunch grits pancakes eggs french toast omlettes service restaurant coffee food"},
 
@@ -126,7 +126,7 @@ var businesses = [
     price: "$$",
     distance: "1.8 mi",
     phone: "(949) 873-5424",
-    rating: "rating: " + 4,
+    rating: 4,
     review: "My favorites are: banana puddin, coconut, peach & amaretti, blueberry cheesecake, and their vanilla twist.",
     keywords: "breakfast brunch donuts coffee gourmet cronuts croissants fast takeout early food dessert"},
 
@@ -136,7 +136,7 @@ var businesses = [
     price: "$$",
     distance: "1 mi",
     phone: "(949) 631-1992",
-    rating: "rating: " + 3.1,
+    rating: 3.1,
     review: "Never again will I order pizza from Pizza Hut - it's disgusting anyways!",
     keywords: "pizza delivery chicken wings buffalo pepsi salads breadsticks garlic bread food"},
 
@@ -144,9 +144,9 @@ var businesses = [
     name: "Tandoori Fresh",
     address: "1500 Adams Ave, Ste 100A, Costa Mesa, CA 92626",
     price: "$$",
-    distance: "rating: " + 3.8,
+    distance: "2.4 mi",
     phone: "(714) 444-4407",
-    rating: "rating: 4",
+    rating: 3.8,
     review: "The lunch special is a great value for what you get (meat, vegetable, rice, naan and a drink) all for under $12.00",
     keywords: "indian pakistani halal curry restaurant naan tikka masala chicken lunch special dinner takeout food"}
 ]
@@ -154,6 +154,50 @@ var businesses = [
 //disabling searching by zipcode
 var zipSearch = document.getElementById("place");
 zipSearch.setAttribute("disabled", true);
+
+//function for updating the rating display
+function avRating (businesses, id, rating) {
+  for (i = 0; i < businesses.length; i++) {
+    if (businesses[i].id == id) {
+      if (businesses[i].rating <= 1.24) {
+        rating.setAttribute("class", "stars");
+        rating.setAttribute("data-class", "one-bomb");
+      }
+      if (businesses[i].rating > 1.24 && businesses[i].rating <= 1.75) {
+        rating.setAttribute("class", "stars");
+        rating.setAttribute("data-class", "one-five-bomb");
+      }
+      if (businesses[i].rating > 1.75 && businesses[i].rating <= 2.25) {
+        rating.setAttribute("class", "stars");
+        rating.setAttribute("data-class", "two-bomb");
+      }
+      if (businesses[i].rating > 2.25 && businesses[i].rating <= 2.75) {
+        rating.setAttribute("class", "stars");
+        rating.setAttribute("data-class", "two-five-bomb");
+      }
+      if (businesses[i].rating > 2.75 && businesses[i].rating <= 3.25) {
+        rating.setAttribute("class", "stars");
+        rating.setAttribute("data-class", "three-bomb");
+      }
+      if (businesses[i].rating > 3.25 && businesses[i].rating <= 3.75) {
+        rating.setAttribute("class", "stars");
+        rating.setAttribute("data-class", "three-five-bomb");
+      }
+      if (businesses[i].rating > 3.75 && businesses[i].rating <= 4.25) {
+        rating.setAttribute("class", "stars");
+        rating.setAttribute("data-class", "four-bomb");
+      }
+      if (businesses[i].rating > 4.25 && businesses[i].rating <= 4.75) {
+        rating.setAttribute("class", "stars");
+        rating.setAttribute("data-class", "four-five-bomb");
+      }
+      if (businesses[i].rating > 4.75) {
+        rating.setAttribute("class", "stars");
+        rating.setAttribute("data-class", "five-bomb");
+      }
+    }
+  }
+}
 
 //declaring i for for loops
 var i;
@@ -174,9 +218,9 @@ function pageLoad() {
     business.appendChild(businessName);
 
     var rating = document.createElement("span");
-    rating.setAttribute("class", "rating");
     rating.setAttribute("id", businesses[i].id);
-    rating.textContent = businesses[i].rating;
+    var id = businesses[i].id
+    avRating(businesses, id, rating);
     business.appendChild(rating);
 
     var distance = document.createElement("span");
@@ -312,7 +356,8 @@ function renderItem(item) {
   var rating = document.createElement("span");
   rating.setAttribute("class", "rating");
   rating.setAttribute("id", item.id);
-  rating.textContent = item.rating;
+  var id = businesses[i].id
+  avRating(businesses, id, rating);
   biz.appendChild(rating);
 
   var distance = document.createElement("span");
@@ -443,17 +488,23 @@ function renderBusiness(item) {
   distance.textContent = item.distance;
   businessName.appendChild(distance);
 
+  var ratingBox = document.createElement("div");
+  ratingBox.setAttribute("class", "stars-sub");
+  ratingBox.setAttribute("id", item.id);
+  content.appendChild(ratingBox);
+
   var rating = document.createElement("div");
   rating.setAttribute("class", "stars");
   rating.setAttribute("id", item.id);
-  rating.textContent = item.rating;
-  content.appendChild(rating);
+  var id = item.id
+  avRating(businesses, id, rating);
+  ratingBox.appendChild(rating);
 
   var price = document.createElement("span");
   price.setAttribute("class", "cost");
   price.setAttribute("id", item.id);
   price.textContent = item.price;
-  rating.appendChild(price);
+  ratingBox.appendChild(price);
 
   var writeReview = document.createElement("div");
   writeReview.setAttribute("class", "write");
@@ -547,7 +598,7 @@ function loadReview(businesses, id) {
   for (i = 0; i < businesses.length; i++) {
     if (businesses[i].id == id) {
       var results = renderReview(businesses[i]);
-      var write = document.querySelector(".stars")
+      var write = document.querySelector(".stars-sub")
       write.appendChild(results);
     }
   }
@@ -560,16 +611,14 @@ content.addEventListener("click", function(e) {
     emptyConfirm();
     var write = document.querySelector(".write");
     var image = document.querySelector(".biz-image");
+    var local = document.querySelector(".local");
+    local.setAttribute("class", "local-rev");
     write.setAttribute("class", "write-hidden");
     image.setAttribute("class", "image-hidden");
     var id = e.target.getAttribute("id");
     loadReview(businesses, id);
   }
 });
-
-/*
-html setup
-*/
 
 function renderReview(item) {
 
@@ -657,7 +706,9 @@ function emptyClose() {
   removeInputs();
   var write = document.querySelector(".write-hidden");
   var image = document.querySelector(".image-hidden");
+  var local = document.querySelector(".local-rev");
   write.setAttribute("class", "write");
+  local.setAttribute("class", "local");
   var writeVisible = document.querySelector(".write");
   writeVisible.textContent = "Write a review";
   image.setAttribute("class", "biz-image");
@@ -802,8 +853,6 @@ function emptyConfirm() {
 function renderFeedback() {
   //capture most recent review and timestamp it
   var currentReview = reviews[reviews.length - 1].review;
-  var bombRating = reviews[reviews.length - 1].bombs;
-  console.log(bombRating);
   var stamp = timeStamp();
 
   //display new feedback
@@ -813,8 +862,7 @@ function renderFeedback() {
   var feedback = document.querySelector(".recent-feedback");
   feedback.parentNode.insertBefore(newFeedback, feedback.nextSibling);
   var bombs = document.createElement("span");
-  bombs.setAttribute("class", "bomb-display");
-  bombs.textContent = "rating: " + bombRating;
+  recentRating(reviews, bombs)
   newFeedback.appendChild(bombs)
   var stampDisplay = document.createElement("span");
   stampDisplay.setAttribute("class", "stamp")
@@ -856,7 +904,6 @@ function timeStamp() {
 //event listener for bombs
 content.addEventListener("click", function(e) {
   if (e.target.id.indexOf("bomb-1") !== -1) {
-    console.log(e.target.id.indexOf("bomb-1"));
     var bomb1 = document.getElementById("bomb-1");
     bomb1.setAttribute("id", "bomb-click-1");
     var bomb2 = document.getElementById("bomb-2");
@@ -872,7 +919,6 @@ content.addEventListener("click", function(e) {
   }
 
   if (e.target.id.indexOf("bomb-2") !== -1) {
-    console.log(e.target.id.indexOf("bomb-2"));
     var bomb2 = document.getElementById("bomb-2");
     bomb2.setAttribute("id", "bomb-click-2");
     var bomb3 = document.getElementById("bomb-3");
@@ -886,7 +932,6 @@ content.addEventListener("click", function(e) {
   }
 
   if (e.target.id.indexOf("bomb-3") !== -1) {
-    console.log(e.target.id.indexOf("bomb-3"));
     var bomb3 = document.getElementById("bomb-3");
     bomb3.setAttribute("id", "bomb-click-3");
     var bomb4 = document.getElementById("bomb-4");
@@ -898,7 +943,6 @@ content.addEventListener("click", function(e) {
   }
 
   if (e.target.id.indexOf("bomb-4") !== -1) {
-    console.log(e.target.id.indexOf("bomb-4"));
     var bomb4 = document.getElementById("bomb-4");
     bomb4.setAttribute("id", "bomb-click-4");
     var bomb5 = document.getElementById("bomb-5");
@@ -908,7 +952,6 @@ content.addEventListener("click", function(e) {
   }
 
   if (e.target.id.indexOf("bomb-5") !== -1) {
-    console.log(e.target.id.indexOf("bomb-1"));
     var bomb5 = document.getElementById("bomb-5");
     bomb5.setAttribute("id", "bomb-click-5");
     var post = document.querySelector(".disabled");
@@ -922,7 +965,7 @@ content.addEventListener("click", function(e) {
   if (clickEvent !== -1) {
     emptyClose();
   }
-  return
+  return;
 });
 
 //event listener for post button
@@ -941,6 +984,8 @@ content.addEventListener("click", function(e) {
     checkLength(); return;
   }
   else {
+    var local = document.querySelector(".local-rev");
+    local.setAttribute("class", "local");
     var id = e.target.getAttribute("id");
     bombSave(reviews, id);
     renderFeedback();
@@ -973,7 +1018,77 @@ function updateAverage(id, businesses, rating) {
     if (businesses[i].id == id) {
       businesses[i].rating = rating;
       var bombDisplay = document.querySelector(".stars");
-      bombDisplay.textContent = rating;
+      ratingDisplay (rating, bombDisplay);
     }
+  }
+}
+
+function recentRating (reviews, rating) {
+  var bombs = reviews[reviews.length - 1].bombs;
+  if (bombs <= 1.24) {
+    rating.setAttribute("data-class", "one-bomb");
+  }
+  if (bombs > 1.24 && bombs <= 1.75) {
+    rating.setAttribute("data-class", "one-five-bomb");
+  }
+  if (bombs > 1.75 && bombs <= 2.25) {
+    rating.setAttribute("data-class", "two-bomb");
+  }
+  if (bombs > 2.25 && bombs <= 2.75) {
+    rating.setAttribute("data-class", "two-five-bomb");
+  }
+  if (bombs > 2.75 && bombs <= 3.25) {
+    rating.setAttribute("data-class", "three-bomb");
+  }
+  if (bombs > 3.25 && bombs <= 3.75) {
+    rating.setAttribute("data-class", "three-five-bomb");
+  }
+  if (bombs > 3.75 && bombs <= 4.25) {
+    rating.setAttribute("data-class", "four-bomb");
+  }
+  if (bombs > 4.25 && bombs <= 4.75) {
+    rating.setAttribute("data-class", "four-five-bomb");
+  }
+  if (bombs > 4.75) {
+    rating.setAttribute("data-class", "five-bomb");
+  }
+}
+
+function ratingDisplay (rating, bombDisplay) {
+  if (rating <= 1.24) {
+    bombDisplay.setAttribute("class", "stars");
+    bombDisplay.setAttribute("data-class", "one-bomb");
+  }
+  if (rating > 1.24 && rating <= 1.75) {
+    bombDisplay.setAttribute("class", "stars");
+    bombDisplay.setAttribute("data-class", "one-five-bomb");
+  }
+  if (rating > 1.75 && rating <= 2.25) {
+    bombDisplay.setAttribute("class", "stars");
+    bombDisplay.setAttribute("data-class", "two-bomb");
+  }
+  if (rating > 2.25 && rating <= 2.75) {
+    bombDisplay.setAttribute("class", "stars");
+    bombDisplay.setAttribute("data-class", "two-five-bomb");
+  }
+  if (rating > 2.75 && rating <= 3.25) {
+    bombDisplay.setAttribute("class", "stars");
+    bombDisplay.setAttribute("data-class", "three-bomb");
+  }
+  if (rating > 3.25 && rating <= 3.75) {
+    bombDisplay.setAttribute("class", "stars");
+    bombDisplay.setAttribute("data-class", "three-five-bomb");
+  }
+  if (rating > 3.75 && rating <= 4.25) {
+    bombDisplay.setAttribute("class", "stars");
+    bombDisplay.setAttribute("data-class", "four-bomb");
+  }
+  if (rating > 4.25 && rating <= 4.75) {
+    bombDisplay.setAttribute("class", "stars");
+    bombDisplay.setAttribute("data-class", "four-five-bomb");
+  }
+  if (rating > 4.75) {
+    bombDisplay.setAttribute("class", "stars");
+    bombDisplay.setAttribute("data-class", "five-bomb");
   }
 }
