@@ -265,7 +265,7 @@ function pageLoad(businesses) {
 }
 
 //function for updating the rating display
-function avRating (businesses, id, rating) {
+function avRating(businesses, id, rating) {
   for (var i = 0; i < businesses.length; i++) {
     if (businesses[i].id == id) {
       rating.setAttribute("class", "stars");
@@ -928,7 +928,6 @@ content.addEventListener("click", function(e) {
     bomb5.setAttribute("id", "bomb-click-5");
     var post = document.querySelector(".disabled");
     post.setAttribute("class", "post");
-
   }
 
   if (e.target.id.indexOf("bomb-3") !== -1) {
@@ -940,7 +939,6 @@ content.addEventListener("click", function(e) {
     bomb5.setAttribute("id", "bomb-click-5");
     var post = document.querySelector(".disabled");
     post.setAttribute("class", "post");
-
   }
 
   if (e.target.id.indexOf("bomb-4") !== -1) {
@@ -950,7 +948,6 @@ content.addEventListener("click", function(e) {
     bomb5.setAttribute("id", "bomb-click-5");
     var post = document.querySelector(".disabled");
     post.setAttribute("class", "post");
-
   }
 
   if (e.target.id.indexOf("bomb-5") !== -1) {
@@ -958,7 +955,6 @@ content.addEventListener("click", function(e) {
     bomb5.setAttribute("id", "bomb-click-5");
     var post = document.querySelector(".disabled");
     post.setAttribute("class", "post");
-
   }
 })
 
