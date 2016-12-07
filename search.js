@@ -1,3 +1,4 @@
+//businesses array
 var businesses = [
   { id: 1,
     name: "Ruth Chris",
@@ -127,7 +128,7 @@ var businesses = [
     distance: "1.8 mi",
     phone: "(949) 873-5424",
     rating: 4,
-    review: "My favorites are: banana puddin, coconut, peach & amaretti, blueberry cheesecake, and their vanilla twist.",
+    review: "My favorites are: banana puddin', coconut, peach & amaretti, blueberry cheesecake, and their vanilla twist.",
     keywords: "breakfast brunch donuts coffee gourmet cronuts croissants fast takeout early food dessert"},
 
   { id: 14,
@@ -151,61 +152,66 @@ var businesses = [
     keywords: "indian pakistani halal curry restaurant naan tikka masala chicken lunch special dinner takeout food"}
 ]
 
+//reviews array
+var reviews = [
+  { revid: 1,
+    bombs: 4,
+    review: "1 - This place exists and is a business. That is all."},
+  { revid: 2,
+    bombs: 4,
+    review: "2 - This place exists and is a business. That is all."},
+  { revid: 3,
+    bombs: 4,
+    review: "3 - This place exists and is a business. That is all."},
+  { revid: 4,
+    bombs: 4,
+    review: "4 - This place exists and is a business. That is all."},
+  { revid: 5,
+    bombs: 4,
+    review: "5 - This place exists and is a business. That is all."},
+  { revid: 6,
+    bombs: 4,
+    review: "6 - This place exists and is a business. That is all."},
+  { revid: 7,
+    bombs: 4,
+    review: "7 - This place exists and is a business. That is all."},
+  { revid: 8,
+    bombs: 4,
+    review: "8 - This place exists and is a business. That is all."},
+  { revid: 9,
+    bombs: 4,
+    review: "9 - This place exists and is a business. That is all."},
+  { revid: 10,
+    bombs: 4,
+    review: "10 - This place exists and is a business. That is all."},
+  { revid: 11,
+    bombs: 4,
+    review: "11 - This place exists and is a business. That is all."},
+  { revid: 12,
+    bombs: 4,
+    review: "12 - This place exists and is a business. That is all."},
+  { revid: 13,
+    bombs: 4,
+    review: "13 - This place exists and is a business. That is all."},
+  { revid: 14,
+    bombs: 4,
+    review: "14 - This place exists and is a business. That is all."},
+  { revid: 15,
+    bombs: 4,
+    review: "15 - This place exists and is a business. That is all."}
+]
+
 //disabling searching by zipcode
 var zipSearch = document.getElementById("place");
 zipSearch.setAttribute("disabled", true);
 
-//function for updating the rating display
-function avRating (businesses, id, rating) {
-  for (i = 0; i < businesses.length; i++) {
-    if (businesses[i].id == id) {
-      if (businesses[i].rating <= 1.24) {
-        rating.setAttribute("class", "stars");
-        rating.setAttribute("data-class", "one-bomb");
-      }
-      if (businesses[i].rating > 1.24 && businesses[i].rating <= 1.75) {
-        rating.setAttribute("class", "stars");
-        rating.setAttribute("data-class", "one-five-bomb");
-      }
-      if (businesses[i].rating > 1.75 && businesses[i].rating <= 2.25) {
-        rating.setAttribute("class", "stars");
-        rating.setAttribute("data-class", "two-bomb");
-      }
-      if (businesses[i].rating > 2.25 && businesses[i].rating <= 2.75) {
-        rating.setAttribute("class", "stars");
-        rating.setAttribute("data-class", "two-five-bomb");
-      }
-      if (businesses[i].rating > 2.75 && businesses[i].rating <= 3.25) {
-        rating.setAttribute("class", "stars");
-        rating.setAttribute("data-class", "three-bomb");
-      }
-      if (businesses[i].rating > 3.25 && businesses[i].rating <= 3.75) {
-        rating.setAttribute("class", "stars");
-        rating.setAttribute("data-class", "three-five-bomb");
-      }
-      if (businesses[i].rating > 3.75 && businesses[i].rating <= 4.25) {
-        rating.setAttribute("class", "stars");
-        rating.setAttribute("data-class", "four-bomb");
-      }
-      if (businesses[i].rating > 4.25 && businesses[i].rating <= 4.75) {
-        rating.setAttribute("class", "stars");
-        rating.setAttribute("data-class", "four-five-bomb");
-      }
-      if (businesses[i].rating > 4.75) {
-        rating.setAttribute("class", "stars");
-        rating.setAttribute("data-class", "five-bomb");
-      }
-    }
-  }
-}
+//declaring content div which holds all content
+var content = document.querySelector(".content");
 
-//declaring i for for loops
-var i;
+//FUNCTIONS
 
 //loading each object in the businesses array on the search page
-//puting it inside a new div called business
-window.onload = pageLoad();
-function pageLoad() {
+function pageLoad(businesses) {
   for (var i = 0; i < businesses.length; i++) {
     var business = document.createElement("div");
     business.setAttribute("class", "business");
@@ -258,30 +264,50 @@ function pageLoad() {
   }
 }
 
-//begin search code
-//function to clear the list div when search submit button is fired
+//function for updating the rating display
+function avRating (businesses, id, rating) {
+  for (var i = 0; i < businesses.length; i++) {
+    if (businesses[i].id == id) {
+      rating.setAttribute("class", "stars");
+      if (businesses[i].rating <= 1.24) {
+        rating.setAttribute("data-class", "one-bomb");
+      }
+      if (businesses[i].rating > 1.24 && businesses[i].rating <= 1.75) {
+        rating.setAttribute("data-class", "one-five-bomb");
+      }
+      if (businesses[i].rating > 1.75 && businesses[i].rating <= 2.25) {
+        rating.setAttribute("data-class", "two-bomb");
+      }
+      if (businesses[i].rating > 2.25 && businesses[i].rating <= 2.75) {
+        rating.setAttribute("data-class", "two-five-bomb");
+      }
+      if (businesses[i].rating > 2.75 && businesses[i].rating <= 3.25) {
+        rating.setAttribute("data-class", "three-bomb");
+      }
+      if (businesses[i].rating > 3.25 && businesses[i].rating <= 3.75) {
+        rating.setAttribute("data-class", "three-five-bomb");
+      }
+      if (businesses[i].rating > 3.75 && businesses[i].rating <= 4.25) {
+        rating.setAttribute("data-class", "four-bomb");
+      }
+      if (businesses[i].rating > 4.25 && businesses[i].rating <= 4.75) {
+        rating.setAttribute("data-class", "four-five-bomb");
+      }
+      if (businesses[i].rating > 4.75) {
+        rating.setAttribute("data-class", "five-bomb");
+      }
+    }
+  }
+}
+
+//function to empty elements
 function empty(element) {
   while (element.firstChild) {
     element.removeChild(element.firstChild);
   }
 }
 
-//declaring content div which holds all content
-var content = document.querySelector(".content");
-
-//when going to home page when home icon is clicked
-/*var home = document.querySelector(".home")
-home.addEventListener("click", function(e) {
-  var clickEvent = e.target.className.indexOf("home");
-  if (clickEvent !== -1) {
-    empty(content);
-    pageLoad();
-  }
-  return
-});
-*/
-
-//declaring function to search for matching text
+//function to search for matching text
 function searchItems(allItems, searchVal) {
   var matchingItems = [];
   for (var i = 0; i < allItems.length; i++) {
@@ -295,54 +321,40 @@ function searchItems(allItems, searchVal) {
   return matchingItems;
 }
 
-//declaring function for capturing search input on search button click, clearing the list div,
+//function for capturing search input on search button click, clearing the list div,
 //appending item to results div
-function listener() {
+function searchResults(searchVal) {
   var list = document.getElementById("list");
+  searchVal = term.value;
   empty(list);
-  var searchVal = term.value;
   if (!searchVal.trim()) return;
   var matchingItems = searchItems (businesses, searchVal);
   if (matchingItems.length === 0) {
     var noMatch = document.createElement("div");
-    noMatch.setAttribute("id", "no-match");
-    noMatch.textContent = "No results found.";
-    var results = document.getElementById("list");
-    results.appendChild(noMatch);
+    noResults(noMatch);
   }
-  for (var i = 0; i < matchingItems.length; i++) {
-    var item = renderItem (matchingItems[i]);
-    list.appendChild(item);
-    }
-  term.select();
-
-  //changing the results list title when submit is fired
-  function checkSearch() {
-    var zip = document.getElementById("zip").textContent;
+  else {
     var changeZipDisplay = document.getElementById("results");
-    changeZipDisplay.textContent = "Search results for " + "'" + searchVal + "'" + " in " + zip;
+    changeZipDisplay.textContent = "Search results for " + '"' + searchVal + '"' + " in " + "92627";
+    for (var i = 0; i < matchingItems.length; i++) {
+      var item = renderItem (matchingItems[i]);
+      list.appendChild(item);
+    }
   }
-  checkSearch();
+  term.select();
 }
 
-//setting up listeners for listener function
-var search = document.getElementById("search");
-search.addEventListener("click", listener);
-
-//listener for the enter button
-var term = document.getElementById("biz-search");
-term.addEventListener("keypress", function(e) {
-    var key = e.which || e.keyCode;
-    if (key === 13) { // 13 is enter
-      listener();
-    }
-  })
-term.select();
+//function for no match in search results
+function noResults(noMatch) {
+  noMatch.setAttribute("id", "no-match");
+  noMatch.textContent = "No results found.";
+  var results = document.getElementById("list");
+  results.appendChild(noMatch);
+}
 
 //assigning classes to all search results
 //then appending then to the DOM
 function renderItem(item) {
-
   var biz = document.createElement("div");
   biz.setAttribute("class", "business");
   biz.setAttribute("id", item.id);
@@ -354,9 +366,8 @@ function renderItem(item) {
   biz.appendChild(businessName);
 
   var rating = document.createElement("span");
-  rating.setAttribute("class", "rating");
   rating.setAttribute("id", item.id);
-  var id = businesses[i].id
+  var id = businesses.id;
   avRating(businesses, id, rating);
   biz.appendChild(rating);
 
@@ -395,7 +406,7 @@ function renderItem(item) {
 //user can click on business from results to view it
 function loadBusiness(businesses, id) {
   empty(content)
-  for (i = 0; i < businesses.length; i++) {
+  for (var i = 0; i < businesses.length; i++) {
     if (businesses[i].id == id) {
       var results = renderBusiness(businesses[i]);
       content.appendChild(results);
@@ -403,74 +414,7 @@ function loadBusiness(businesses, id) {
   }
 }
 
-//event listener for click on any businesses
-var businessBox = document.getElementById("list");
-
-businessBox.addEventListener("click", function(e) {
-  var id = e.target.getAttribute("id");
-  var businessClick = e.target.className.indexOf("business");
-  if (businessClick !== -1) {
-   loadBusiness(businesses, id);
-  }
-
-  var nameClick = e.target.className.indexOf("name");
-  if (nameClick !== -1) {
-   loadBusiness(businesses, id);
-  }
-
-  var ratingClick = e.target.className.indexOf("rating" );
-  if (ratingClick !== -1) {
-   loadBusiness(businesses, id);
-  }
-
-  var distanceClick = e.target.className.indexOf("distance");
-  if (distanceClick !== -1) {
-   loadBusiness(businesses, id);
-  }
-
-  var priceClick = e.target.className.indexOf("price");
-  if (priceClick !== -1) {
-   loadBusiness(businesses, id);
-  }
-
-  var addressClick = e.target.className.indexOf("address");
-  if (addressClick !== -1) {
-   loadBusiness(businesses, id);
-  }
-
-  var phoneClick = e.target.className.indexOf("phone");
-  if (phoneClick !== -1) {
-   loadBusiness(businesses, id);
-  }
-
-  var reviewClick = e.target.className.indexOf("review");
-  if (reviewClick !== -1) {
-   loadBusiness(businesses, id);
-  }
-});
-/*
-<div class="profile-content">
-  <div class="biz-name">
-    <span class="biz-distance"></span>
-  </div>
-  <div class="biz-rating">
-    <span class="biz-price">
-  </div>
-  <div class="write-review">
-  </div>
-  <div class="biz-image">
-  </div>
-  <div class="biz-address">
-  </div>
-  <div class="biz-directions">
-  </div>
-  <div class="biz-call">
-  </div>
-  <div class="biz-review">
-  </div>
-</div>
-*/
-
+//function to render business detail page
 function renderBusiness(item) {
   var content = document.createElement("div");
   content.setAttribute("class", "profile-content");
@@ -478,31 +422,26 @@ function renderBusiness(item) {
 
   var businessName = document.createElement("div");
   businessName.setAttribute("class", "title");
-  businessName.setAttribute("id", item.id);
   businessName.textContent = item.name;
   content.appendChild(businessName);
 
   var distance = document.createElement("span");
   distance.setAttribute("class", "miles");
-  distance.setAttribute("id", item.id);
   distance.textContent = item.distance;
   businessName.appendChild(distance);
 
   var ratingBox = document.createElement("div");
   ratingBox.setAttribute("class", "stars-sub");
-  ratingBox.setAttribute("id", item.id);
   content.appendChild(ratingBox);
 
   var rating = document.createElement("div");
   rating.setAttribute("class", "stars");
-  rating.setAttribute("id", item.id);
   var id = item.id
   avRating(businesses, id, rating);
   ratingBox.appendChild(rating);
 
   var price = document.createElement("span");
   price.setAttribute("class", "cost");
-  price.setAttribute("id", item.id);
   price.textContent = item.price;
   ratingBox.appendChild(price);
 
@@ -519,67 +458,56 @@ function renderBusiness(item) {
 
   var address = document.createElement("div");
   address.setAttribute("class", "local");
-  address.setAttribute("id", item.id);
   address.textContent = item.address;
   content.appendChild(address);
 
   var directionsHeader = document.createElement("div");
   directionsHeader.setAttribute("class", "biz-directions-header");
-  directionsHeader.setAttribute("id", item.id);
   directionsHeader.textContent = "Directions:";
   content.appendChild(directionsHeader);
 
   var directionsBox = document.createElement("div");
   directionsBox.setAttribute("class", "biz-directions");
-  directionsBox.setAttribute("id", item.id);
   content.appendChild(directionsBox);
 
   var directions = document.createElement("a");
   directions.setAttribute("href", "http://maps.google.com");
   directions.setAttribute("class", "directions");
-  directions.setAttribute("id", item.id);
   directions.textContent = "Get directions";
   directionsBox.appendChild(directions);
 
   var callHeader = document.createElement("div");
   callHeader.setAttribute("class", "biz-call-header");
-  callHeader.setAttribute("id", item.id);
   callHeader.textContent = "Call the business:";
   content.appendChild(callHeader);
 
   var callBox = document.createElement("div");
   callBox.setAttribute("class", "biz-call");
-  callBox.setAttribute("id", item.id);
   content.appendChild(callBox);
 
   var call = document.createElement("a");
   call.setAttribute("class", "call");
-  call.setAttribute("id", item.id);
-  var phone = parseInt(item.phone.replace(/[^0-9]/g, ''), 10);
-  call.setAttribute("href", "tel:" + phone.value); //not sure how to set this telephone link
+  var phone = (item.phone.replace(/[^0-9]/g, ''), 10);
+  call.setAttribute("href", "tel:" + phone);
   call.textContent = "Call " + item.phone;
   callBox.appendChild(call);
 
   var reviewHeader = document.createElement("div");
   reviewHeader.setAttribute("class", "feedback-header");
-  reviewHeader.setAttribute("id", item.id);
   reviewHeader.textContent = "Reviews:";
   content.appendChild(reviewHeader);
 
   var reviewContent = document.createElement("div");
   reviewHeader.setAttribute("class", "feedback-box");
-  reviewHeader.setAttribute("id", item.id);
   content.appendChild(reviewContent);
 
   var favReview = document.createElement("div");
   favReview.setAttribute("class", "fav-feedback");
-  favReview.setAttribute("id", item.id);
   favReview.textContent = "Favorite review:"
   content.appendChild(favReview);
 
   var review = document.createElement("div");
   review.setAttribute("class", "feedback");
-  review.setAttribute("id", item.id);
   review.textContent = '"' + item.review + '"';
   favReview.appendChild(review);
 
@@ -592,39 +520,20 @@ function renderBusiness(item) {
   return content;
 }
 
-//ADDING A REVIEW
+//adding a review
 //function to load review page
-function loadReview(businesses, id) {
-  for (i = 0; i < businesses.length; i++) {
-    if (businesses[i].id == id) {
-      var results = renderReview(businesses[i]);
-      var write = document.querySelector(".stars-sub")
-      write.appendChild(results);
-    }
-  }
+function loadReview(businesses) {
+    var result = renderReview(businesses);
+    var write = document.querySelector(".stars-sub")
+    write.appendChild(result);
 }
 
-//event listener to laod review page
-content.addEventListener("click", function(e) {
-  var clickEvent = e.target.className.indexOf("write");
-  if (clickEvent !== -1) {
-    emptyConfirm();
-    var write = document.querySelector(".write");
-    var image = document.querySelector(".biz-image");
-    var local = document.querySelector(".local");
-    local.setAttribute("class", "local-rev");
-    write.setAttribute("class", "write-hidden");
-    image.setAttribute("class", "image-hidden");
-    var id = e.target.getAttribute("id");
-    loadReview(businesses, id);
-  }
-});
-
-function renderReview(item) {
-
+//function to render review content
+function renderReview(id) {
+  var setId = document.querySelector(".recent-feedback");
+  id = setId.getAttribute("id");
   var content = document.createElement("div");
   content.setAttribute("class", "feedback-content");
-  content.setAttribute("id", item.id);
 
   var quickRate = document.createElement("div");
   quickRate.setAttribute("class", "quick-rate");
@@ -633,19 +542,17 @@ function renderReview(item) {
 
   var close = document.createElement("span");
   close.setAttribute("class", "close");
-  close.setAttribute("id", item.id);
-  close.textContent = "Close"
+  close.textContent = "Cancel"
   content.appendChild(close);
 
   var post = document.createElement("span");
   post.setAttribute("class", "disabled");
-  post.setAttribute("id", item.id);
+  post.setAttribute("id", id);
   post.textContent = "Post";
   content.appendChild(post);
 
   var ratingBox = document.createElement("div");
   ratingBox.setAttribute("class", "box");
-  ratingBox.setAttribute("id", item.id);
   content.appendChild(ratingBox);
 
   var bombBox = document.createElement("div");
@@ -654,56 +561,60 @@ function renderReview(item) {
 
   var bomb1 = document.createElement("i");
   bomb1.setAttribute("class", "fa fa-bomb 1");
+  bomb1.setAttribute("data-class", "bombs");
   bomb1.setAttribute("aria-hidden", "true");
   bomb1.setAttribute("id", "bomb-1");
-  bomb1.setAttribute("data-id", item.id);
+  bomb1.setAttribute("data-id", id);
   bombBox.appendChild(bomb1);
 
   var bomb2 = document.createElement("i");
   bomb2.setAttribute("class", "fa fa-bomb 2");
+  bomb2.setAttribute("data-class", "bombs");
   bomb2.setAttribute("aria-hidden", "true");
   bomb2.setAttribute("id", "bomb-2");
-  bomb2.setAttribute("data-id", item.id);
+  bomb2.setAttribute("data-id", id);
   bombBox.appendChild(bomb2);
 
   var bomb3 = document.createElement("i");
   bomb3.setAttribute("class", "fa fa-bomb 3");
+  bomb3.setAttribute("data-class", "bombs");
   bomb3.setAttribute("aria-hidden", "true");
   bomb3.setAttribute("id", "bomb-3");
-  bomb3.setAttribute("data-id", item.id);
+  bomb3.setAttribute("data-id", id);
   bombBox.appendChild(bomb3);
 
   var bomb4 = document.createElement("i");
   bomb4.setAttribute("class", "fa fa-bomb 4");
+  bomb4.setAttribute("data-class", "bombs");
   bomb4.setAttribute("aria-hidden", "true");
   bomb4.setAttribute("id", "bomb-4");
-  bomb4.setAttribute("data-id", item.id);
+  bomb4.setAttribute("data-id", id);
   bombBox.appendChild(bomb4);
 
   var bomb5 = document.createElement("i");
   bomb5.setAttribute("class", "fa fa-bomb 5");
+  bomb5.setAttribute("data-class", "bombs");
   bomb5.setAttribute("aria-hidden", "true");
   bomb5.setAttribute("id", "bomb-5");
-  bomb5.setAttribute("data-id", item.id);
+  bomb5.setAttribute("data-id", id);
   bombBox.appendChild(bomb5);
 
   var reviewBox = document.createElement("div");
   reviewBox.setAttribute("class", "box-2");
-  reviewBox.setAttribute("id", item.id);
   content.appendChild(reviewBox);
 
   var reviewText = document.createElement("input");
   reviewText.setAttribute("id", "feedback-text");
-  reviewText.setAttribute("placeholder", "Write your feedback here...");
+  reviewText.setAttribute("placeholder", "Write your review here...");
   reviewText.setAttribute("type", "text");
   reviewBox.appendChild(reviewText);
 
   return content;
 }
 
-//function to revert if user clicks close
-function emptyClose() {
-  removeInputs();
+//function to revert if user clicks cancel
+function emptyCancel(feedbackContent) {
+  removeInputs(feedbackContent);
   var write = document.querySelector(".write-hidden");
   var image = document.querySelector(".image-hidden");
   var local = document.querySelector(".local-rev");
@@ -714,57 +625,8 @@ function emptyClose() {
   image.setAttribute("class", "biz-image");
 }
 
-//new data array
-var reviews = [
-  { revid: 1,
-    bombs: 4,
-    review: "1 - This place exists and is a business. That is all."},
-  { revid: 2,
-    bombs: 4,
-    review: "2 - This place exists and is a business. That is all."},
-  { revid: 3,
-    bombs: 4,
-    review: "3 - This place exists and is a business. That is all."},
-  { revid: 4,
-    bombs: 4,
-    review: "4 - This place exists and is a business. That is all."},
-  { revid: 5,
-    bombs: 4,
-    review: "5 - This place exists and is a business. That is all."},
-  { revid: 6,
-    bombs: 4,
-    review: "6 - This place exists and is a business. That is all."},
-  { revid: 7,
-    bombs: 4,
-    review: "7 - This place exists and is a business. That is all."},
-  { revid: 8,
-    bombs: 4,
-    review: "8 - This place exists and is a business. That is all."},
-  { revid: 9,
-    bombs: 4,
-    review: "9 - This place exists and is a business. That is all."},
-  { revid: 10,
-    bombs: 4,
-    review: "10 - This place exists and is a business. That is all."},
-  { revid: 11,
-    bombs: 4,
-    review: "11 - This place exists and is a business. That is all."},
-  { revid: 12,
-    bombs: 4,
-    review: "12 - This place exists and is a business. That is all."},
-  { revid: 13,
-    bombs: 4,
-    review: "13 - This place exists and is a business. That is all."},
-  { revid: 14,
-    bombs: 4,
-    review: "14 - This place exists and is a business. That is all."},
-  { revid: 15,
-    bombs: 4,
-    review: "15 - This place exists and is a business. That is all."}
-]
-
-//bomb-rating a business
-function bombSave (reviews) {
+//assigning values to bombs clicked and pushing to reviews array
+function bombSave(reviews) {
   var feedback = document.querySelector(".recent-feedback");
   var setId = feedback.getAttribute("id");
   var reviewVal = document.getElementById("feedback-text").value;
@@ -796,81 +658,77 @@ function bombSave (reviews) {
   }
 }
 
-//function is no value is entered
-function noReview() {
-  var reviewBox = document.querySelector(".box-2");
-  var reviewWarn = document.createElement("div")
-  reviewWarn.setAttribute("id", "feedback-warning");
-  reviewWarn.textContent= "Must enter a review.";
-  reviewBox.appendChild(reviewWarn);
+//function if no review value is entered
+function noReview(warning) {
+  warning.setAttribute("id", "feedback-warning");
+  warning.textContent= "Must enter a review.";
+}
+//function to notify of short review
+function checkLength(length) {
+  length.setAttribute("id", "length");
+  length.textContent = "Nice try, your review must be at least 10 charatcters."
 }
 
-function checkLength() {
-  var lengthWarn = document.createElement("div");
-  var textBox = document.querySelector(".box-2");
-  lengthWarn.setAttribute("id", "length");
-  lengthWarn.textContent = "Your review must be at least 10 charatcters."
-  textBox.appendChild(lengthWarn);
-}
-
-function removeWarnings() {
-  var reviewWarning = document.getElementById("feedback-warning");
-  var lengthWarning = document.getElementById("length");
-  if (reviewWarning) {
-    reviewWarning.parentNode.removeChild(reviewWarning);
+//remove warning text
+function removeWarnings(review, length) {
+  if (review) {
+    review.parentNode.removeChild(review);
   }
-  else if (lengthWarning) {
-    lengthWarning.parentNode.removeChild(lengthWarning);
-  }
-  else {
-    return
+  else if (length) {
+    length.parentNode.removeChild(length);
   }
 }
 
 //removing review box when rendering review
-function removeInputs() {
-  var feedbackContent = document.querySelector(".feedback-content");
-  if (feedbackContent) {
-    feedbackContent.parentNode.removeChild(feedbackContent);
-  }
-  else {
-    return;
+function removeInputs(feedback) {
+  if (feedback) {
+    feedback.parentNode.removeChild(feedback);
   }
 }
 
-//function to empty confirmation text
-function emptyConfirm() {
-  var confirmContent = document.querySelector(".write");
-  if (!confirmContent.firstChild) {
+//empty confirmation text
+function emptyConfirm(text) {
+  if (!text.firstChild) {
     return;
   }
   else {
-    confirmContent.removeChild(confirmContent.firstChild);
+    text.removeChild(text.firstChild);
   }
+}
+
+//displaying time stamp
+function stampDisplay(time) {
+  var now = new Date();
+  var stamp = timeStamp(now);
+  time.setAttribute("class", "stamp")
+  time.textContent = stamp;
+  return (time);
 }
 
 //displaying data on business detail page
-function renderFeedback() {
-  //capture most recent review and timestamp it
-  var currentReview = reviews[reviews.length - 1].review;
-  var stamp = timeStamp();
-
+function renderFeedback(currentReview) {
   //display new feedback
-  var newFeedback = document.createElement("div");
-  newFeedback.setAttribute("class", "new-feedback");
-  newFeedback.textContent = '"' + currentReview + '"';
+  var reviewBox = document.createElement("div");
+  reviewBox.setAttribute("class", "new-feedback");
+  reviewBox.textContent = '"' + currentReview + '"';
   var feedback = document.querySelector(".recent-feedback");
-  feedback.parentNode.insertBefore(newFeedback, feedback.nextSibling);
-  var bombs = document.createElement("span");
-  recentRating(reviews, bombs)
-  newFeedback.appendChild(bombs)
-  var stampDisplay = document.createElement("span");
-  stampDisplay.setAttribute("class", "stamp")
-  stampDisplay.textContent = stamp;
-  newFeedback.appendChild(stampDisplay);
+  feedback.parentNode.insertBefore(reviewBox, feedback.nextSibling);
 
-  //empty add review content and go back to business detail
-  removeInputs();
+  //display rating
+  var bombs = document.createElement("span");
+  var review = reviews[reviews.length - 1].bombs;
+  bombs.setAttribute("class", "new-bombs");
+  ratingDisplay(review, bombs);
+  reviewBox.appendChild(bombs);
+
+  //display timestamp
+  var time = document.createElement("span");
+  var timeStamp = stampDisplay(time);
+  reviewBox.appendChild(timeStamp);
+
+  //empty "add review" content and go back to business detail
+  var feedbackContent = document.querySelector(".feedback-content");
+  removeInputs(feedbackContent);
   var write = document.querySelector(".write-hidden");
   var image = document.querySelector(".image-hidden");
   write.setAttribute("class", "write");
@@ -879,27 +737,168 @@ function renderFeedback() {
   writeReview.textContent = "Write a review";
 
   //'review added' confirmation notice
-  var reviewConfirm = document.createElement("span");
-  reviewConfirm.setAttribute("class", "confirm");
-  reviewConfirm.textContent = "Review Added!";
-  writeReview.appendChild(reviewConfirm);
+  var confirm = document.createElement("span");
+  confirmation(confirm);
+  writeReview.appendChild(confirm);
 }
 
-//timestamp function
-function timeStamp() {
-  var now = new Date();
-  var date = [ now.getMonth() + 1, now.getDate(), now.getFullYear() ];
-  var time = [ now.getHours(), now.getMinutes() ];
-  var suffix = ( time[0] < 12 ) ? "AM" : "PM";
-  time[0] = ( time[0] < 12 ) ? time[0] : time[0] - 12;
-  time[0] = time[0] || 12;
-  for ( var i = 1; i < 3; i++ ) {
+//confirm that review was added
+function confirmation(confirm) {
+  confirm.setAttribute("class", "confirm");
+  confirm.textContent = "Review Added!";
+}
+
+//processing timestamp
+function timeStamp(now) {
+  var date = [
+    now.getMonth() + 1,
+    now.getDate(),
+    now.getFullYear()
+  ];
+  var time = [
+    now.getHours(),
+    now.getMinutes()
+  ];
+  var suffix;
+  if (time[0] < 12) {
+    suffix = "AM";
+  }
+  else {
+    suffix = "PM";
+  }
+  if (time[0] >= 12) {
+    time[0] =- 12;
+  }
+  for ( var i = 1; i < 2; i++ ) {
     if ( time[i] < 10 ) {
       time[i] = "0" + time[i];
     }
   }
-  return date.join("/") + " " + time.join(":") + " " + suffix;
+  return date[0] + "/" + date[1] + "/" + date[2] + " " + time[0] + (":") + time[1] + " " + suffix;
 }
+
+//putting matching reviews into new array
+function businessReviews(id) {
+  var matches = [];
+  for (var i = 0; i < reviews.length; i++ ) {
+    if (reviews[i].revid == id) {
+      matches.push(reviews[i]);
+    }
+  }
+  return matches;
+}
+
+//taking matching reviews and analyzing average
+function averageReview(reviews) {
+  var accumlation = 0;
+  for (var i = 0; i < reviews.length; i++) {
+    accumlation += reviews[i].bombs;
+  }
+  var average = accumlation / reviews.length;
+  return average;
+}
+
+//matching average with business
+function updateAverage(id, businesses, review) {
+  for (var i = 0; i < businesses.length; i++) {
+    if (businesses[i].id == id) {
+      businesses[i].rating = review;
+      var rating = document.querySelector(".stars");
+      rating.setAttribute("class", "stars");
+      ratingDisplay (review, rating);
+    }
+  }
+}
+
+//displaying rating average for matching business
+function ratingDisplay(review, rating) {
+  if (review <= 1.24) {
+    rating.setAttribute("data-class", "one-bomb");
+  }
+  if (review > 1.24 && review <= 1.75) {
+    rating.setAttribute("data-class", "one-five-bomb");
+  }
+  if (review > 1.75 && review <= 2.25) {
+    rating.setAttribute("data-class", "two-bomb");
+  }
+  if (review > 2.25 && review <= 2.75) {
+    rating.setAttribute("data-class", "two-five-bomb");
+  }
+  if (review > 2.75 && review <= 3.25) {
+    rating.setAttribute("data-class", "three-bomb");
+  }
+  if (review > 3.25 && review <= 3.75) {
+    rating.setAttribute("data-class", "three-five-bomb");
+  }
+  if (review > 3.75 && review <= 4.25) {
+    rating.setAttribute("data-class", "four-bomb");
+  }
+  if (review > 4.25 && review <= 4.75) {
+    rating.setAttribute("data-class", "four-five-bomb");
+  }
+  if (review > 4.75) {
+    rating.setAttribute("data-class", "five-bomb");
+  }
+}
+
+//RUNNING FUNCTIONS
+
+window.onload = pageLoad(businesses);
+
+//LISTENERS
+//listeners for search button
+var search = document.getElementById("search");
+search.addEventListener("click", searchResults);
+
+//listener for the enter button on search bar
+var term = document.getElementById("biz-search");
+term.addEventListener("keypress", function(e) {
+    var key = e.which || e.keyCode;
+    if (key === 13) { // 13 is enter
+      searchResults();
+    }
+  })
+term.select();
+
+//event listener for click on any businesses
+var businessBox = document.getElementById("list");
+businessBox.addEventListener("click", function(e) {
+  var classes =[
+      "business",
+      "name",
+      "stars",
+      "distance",
+      "price",
+      "address",
+      "phone",
+      "review"
+  ]
+  for (var i = 0; i < classes.length; i++) {
+    var id = e.target.getAttribute("id");
+    var businessClick = e.target.className.indexOf(classes[i]);
+    if (businessClick !== -1) {
+      var removeTarget = document.getElementById("line");
+      removeTarget.parentNode.removeChild(removeTarget);
+      loadBusiness(businesses, id);
+    }
+  }
+});
+
+//event listener to laod review page
+content.addEventListener("click", function(e) {
+  var clickEvent = e.target.className.indexOf("write");
+  if (clickEvent !== -1) {
+    var confirmContent = document.querySelector(".write");
+    emptyConfirm(confirmContent);
+    var write = document.querySelector(".write");
+    var image = document.querySelector(".biz-image");
+    var local = document.querySelector(".local");
+    local.setAttribute("class", "local-rev");
+    write.setAttribute("class", "write-hidden");
+    image.setAttribute("class", "image-hidden");
+    loadReview(businesses);
+  }
+});
 
 //event listener for bombs
 content.addEventListener("click", function(e) {
@@ -929,6 +928,7 @@ content.addEventListener("click", function(e) {
     bomb5.setAttribute("id", "bomb-click-5");
     var post = document.querySelector(".disabled");
     post.setAttribute("class", "post");
+
   }
 
   if (e.target.id.indexOf("bomb-3") !== -1) {
@@ -940,6 +940,7 @@ content.addEventListener("click", function(e) {
     bomb5.setAttribute("id", "bomb-click-5");
     var post = document.querySelector(".disabled");
     post.setAttribute("class", "post");
+
   }
 
   if (e.target.id.indexOf("bomb-4") !== -1) {
@@ -949,6 +950,7 @@ content.addEventListener("click", function(e) {
     bomb5.setAttribute("id", "bomb-click-5");
     var post = document.querySelector(".disabled");
     post.setAttribute("class", "post");
+
   }
 
   if (e.target.id.indexOf("bomb-5") !== -1) {
@@ -956,14 +958,16 @@ content.addEventListener("click", function(e) {
     bomb5.setAttribute("id", "bomb-click-5");
     var post = document.querySelector(".disabled");
     post.setAttribute("class", "post");
+
   }
 })
 
-//event listener for close button
+//event listener for cancel button
 content.addEventListener("click", function(e) {
   var clickEvent = e.target.className.indexOf("close");
   if (clickEvent !== -1) {
-    emptyClose();
+    var feedbackContent = document.querySelector(".feedback-content");
+    emptyCancel(feedbackContent);
   }
   return;
 });
@@ -975,120 +979,38 @@ content.addEventListener("click", function(e) {
     return;
   }
 
-  removeWarnings();
+  //remove warnings if they exist
+  var reviewWarning = document.getElementById("feedback-warning");
+  var lengthWarning = document.getElementById("length");
+  removeWarnings(reviewWarning, lengthWarning);
+
+  //warning if no review text
   var reviewVal = document.getElementById("feedback-text").value;
   if (reviewVal.length === 0) {
-    noReview(); return;
+    var reviewBox = document.querySelector(".box-2");
+    var warning = document.createElement("div");
+    noReview(warning);
+    reviewBox.appendChild(warning);
+    return;
   }
+
+  //warning for review length
   else if (reviewVal.length < 10) {
-    checkLength(); return;
+    var length = document.createElement("div");
+    var lengthBox = document.querySelector(".box-2");
+    checkLength(length);
+    lengthBox.appendChild(length);
+    return;
   }
+
+  //process rating and review
   else {
     var local = document.querySelector(".local-rev");
     local.setAttribute("class", "local");
     var id = e.target.getAttribute("id");
-    bombSave(reviews, id);
-    renderFeedback();
+    bombSave(reviews);
+    var currentReview = reviews[reviews.length - 1].review;
+    renderFeedback(currentReview);
     updateAverage(id, businesses, averageReview(businessReviews(id)));
   }
 });
-
-//updating total business rating as average of individual ratings
-function businessReviews(id) {
-  var matches = [];
-  for (var i = 0; i < reviews.length; i++ ) {
-    if (reviews[i].revid == id) {
-      matches.push(reviews[i]);
-    }
-  }
-  return matches;
-}
-
-function averageReview(reviews) {
-  var accumlation = 0;
-  for (var i = 0; i < reviews.length; i++) {
-    accumlation += reviews[i].bombs;
-  }
-  var average = accumlation / reviews.length;
-  return average;
-}
-
-function updateAverage(id, businesses, rating) {
-  for (var i = 0; i < businesses.length; i++) {
-    if (businesses[i].id == id) {
-      businesses[i].rating = rating;
-      var bombDisplay = document.querySelector(".stars");
-      ratingDisplay (rating, bombDisplay);
-    }
-  }
-}
-
-function recentRating (reviews, rating) {
-  var bombs = reviews[reviews.length - 1].bombs;
-  if (bombs <= 1.24) {
-    rating.setAttribute("data-class", "one-bomb");
-  }
-  if (bombs > 1.24 && bombs <= 1.75) {
-    rating.setAttribute("data-class", "one-five-bomb");
-  }
-  if (bombs > 1.75 && bombs <= 2.25) {
-    rating.setAttribute("data-class", "two-bomb");
-  }
-  if (bombs > 2.25 && bombs <= 2.75) {
-    rating.setAttribute("data-class", "two-five-bomb");
-  }
-  if (bombs > 2.75 && bombs <= 3.25) {
-    rating.setAttribute("data-class", "three-bomb");
-  }
-  if (bombs > 3.25 && bombs <= 3.75) {
-    rating.setAttribute("data-class", "three-five-bomb");
-  }
-  if (bombs > 3.75 && bombs <= 4.25) {
-    rating.setAttribute("data-class", "four-bomb");
-  }
-  if (bombs > 4.25 && bombs <= 4.75) {
-    rating.setAttribute("data-class", "four-five-bomb");
-  }
-  if (bombs > 4.75) {
-    rating.setAttribute("data-class", "five-bomb");
-  }
-}
-
-function ratingDisplay (rating, bombDisplay) {
-  if (rating <= 1.24) {
-    bombDisplay.setAttribute("class", "stars");
-    bombDisplay.setAttribute("data-class", "one-bomb");
-  }
-  if (rating > 1.24 && rating <= 1.75) {
-    bombDisplay.setAttribute("class", "stars");
-    bombDisplay.setAttribute("data-class", "one-five-bomb");
-  }
-  if (rating > 1.75 && rating <= 2.25) {
-    bombDisplay.setAttribute("class", "stars");
-    bombDisplay.setAttribute("data-class", "two-bomb");
-  }
-  if (rating > 2.25 && rating <= 2.75) {
-    bombDisplay.setAttribute("class", "stars");
-    bombDisplay.setAttribute("data-class", "two-five-bomb");
-  }
-  if (rating > 2.75 && rating <= 3.25) {
-    bombDisplay.setAttribute("class", "stars");
-    bombDisplay.setAttribute("data-class", "three-bomb");
-  }
-  if (rating > 3.25 && rating <= 3.75) {
-    bombDisplay.setAttribute("class", "stars");
-    bombDisplay.setAttribute("data-class", "three-five-bomb");
-  }
-  if (rating > 3.75 && rating <= 4.25) {
-    bombDisplay.setAttribute("class", "stars");
-    bombDisplay.setAttribute("data-class", "four-bomb");
-  }
-  if (rating > 4.25 && rating <= 4.75) {
-    bombDisplay.setAttribute("class", "stars");
-    bombDisplay.setAttribute("data-class", "four-five-bomb");
-  }
-  if (rating > 4.75) {
-    bombDisplay.setAttribute("class", "stars");
-    bombDisplay.setAttribute("data-class", "five-bomb");
-  }
-}
