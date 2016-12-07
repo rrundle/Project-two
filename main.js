@@ -637,23 +637,23 @@ function bombSave(reviews) {
   var bomb5 = document.getElementById("bomb-5");
   var bombVal;
   if (!bomb5 && bomb4) {
-    bombVal = 1
+    bombVal = 1;
     reviews.push({revid: setId, bombs: bombVal, review: reviewVal});
   }
   if (!bomb4 && bomb3) {
-    bombVal = 2
+    bombVal = 2;
     reviews.push({revid: setId, bombs: bombVal, review: reviewVal});
   }
   if (!bomb3 && bomb2) {
-    bombVal = 3
+    bombVal = 3;
     reviews.push({revid: setId, bombs: bombVal, review: reviewVal});
   }
   if (!bomb2 && bomb1) {
-    bombVal = 4
+    bombVal = 4;
     reviews.push({revid: setId, bombs: bombVal, review: reviewVal});
   }
   if (!bomb1) {
-    bombVal = 5
+    bombVal = 5;
     reviews.push({revid: setId, bombs: bombVal, review: reviewVal});
   }
 }
@@ -661,12 +661,12 @@ function bombSave(reviews) {
 //function if no review value is entered
 function noReview(warning) {
   warning.setAttribute("id", "feedback-warning");
-  warning.textContent= "Must enter a review.";
+  warning.textContent = "Must enter a review.";
 }
 //function to notify of short review
 function checkLength(length) {
   length.setAttribute("id", "length");
-  length.textContent = "Nice try, your review must be at least 10 charatcters."
+  length.textContent = "Nice try, your review must be at least 10 charatcters.";
 }
 
 //remove warning text
@@ -700,7 +700,7 @@ function emptyConfirm(text) {
 function stampDisplay(time) {
   var now = new Date();
   var stamp = timeStamp(now);
-  time.setAttribute("class", "stamp")
+  time.setAttribute("class", "stamp");
   time.textContent = stamp;
   return (time);
 }
@@ -754,11 +754,11 @@ function timeStamp(now) {
     now.getMonth() + 1,
     now.getDate(),
     now.getFullYear()
-  ];
+  ]
   var time = [
     now.getHours(),
     now.getMinutes()
-  ];
+  ]
   var suffix;
   if (time[0] < 12) {
     suffix = "AM";
@@ -770,7 +770,7 @@ function timeStamp(now) {
     time[0] =- 12;
   }
   for ( var i = 1; i < 2; i++ ) {
-    if ( time[i] < 10 ) {
+    if (time[i] < 10) {
       time[i] = "0" + time[i];
     }
   }
@@ -805,7 +805,7 @@ function updateAverage(id, businesses, review) {
       businesses[i].rating = review;
       var rating = document.querySelector(".stars");
       rating.setAttribute("class", "stars");
-      ratingDisplay (review, rating);
+      ratingDisplay(review, rating);
     }
   }
 }
@@ -854,7 +854,7 @@ search.addEventListener("click", searchResults);
 var term = document.getElementById("biz-search");
 term.addEventListener("keypress", function(e) {
     var key = e.which || e.keyCode;
-    if (key === 13) { // 13 is enter
+    if (key === 13) {
       searchResults();
     }
   })
