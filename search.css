@@ -8,13 +8,27 @@ body {
   margin: 20px auto 5px auto;
 }
 
+h1 {
+  font-weight: 100;
+  text-align: center;
+  margin: 5px;
+}
+
+#fade-out {
+  visibility: hidden;
+}
+
+#tagline {
+  font-weight: 300;
+}
+
 #home {
   visibility: hidden;
 }
 
 img {
   width: 200px;
-  margin: 0 auto;
+  margin: 0px auto;
 }
 
 .content {
@@ -73,10 +87,6 @@ img {
   margin: 30px 0px 30px 0px;
 }
 
-#list.rating {
-  color: blue;
-}
-
 .business {
   margin: 30px 0px 30px 0px;
   border: 1px solid #D0D0D0;
@@ -85,7 +95,7 @@ img {
 }
 
 .business:hover {
-  background-color: #D0D0D0;
+  background-color: #ECECEC;
   cursor: pointer;
 }
 
@@ -179,96 +189,68 @@ img {
   width: 100%;
   height: 500px;
   margin: 5px 0px 15px 0px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 #image-1 {
   background-image: url("http://i.imgur.com/pSjTWqM.jpg?3");
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 #image-2 {
   background-image: url("http://i.imgur.com/d7Z6lh5.jpg?2");
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 #image-3 {
   background-image: url("http://i.imgur.com/ydlvyrN.jpg?2");
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 #image-4 {
   background-image: url("http://i.imgur.com/KkULKY0.jpg?2");
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 #image-5 {
   background-image: url("http://i.imgur.com/ANrqPHU.jpg?2");
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 #image-6 {
   background-image: url("http://i.imgur.com/MAB44QV.jpg?2");
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 #image-7 {
   background-image: url("http://i.imgur.com/D51GqeK.jpg?3");
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 #image-8 {
   background-image: url("http://i.imgur.com/FQ1m3Ta.jpg?1");
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 #image-9 {
   background-image: url("http://i.imgur.com/3gnjVLO.jpg?1");
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 #image-10 {
   background-image: url("http://i.imgur.com/K6xJxhu.jpg?1");
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 #image-11 {
   background-image: url("http://i.imgur.com/9GyDUwV.jpg?1");
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 #image-12 {
   background-image: url("http://i.imgur.com/AmODslY.jpg?1");
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 #image-13 {
   background-image: url("http://i.imgur.com/hO8nwdi.jpg?1");
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 #image-14 {
   background-image: url("http://i.imgur.com/8GTB8X2.jpg?1");
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 #image-15 {
   background-image: url("http://i.imgur.com/DEakqzi.jpg?1");
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 .local {
@@ -280,7 +262,7 @@ img {
 }
 
 .local-rev {
-  margin-top: 450px;
+  margin-top: 470px;
   margin-bottom: 15px;
   border-bottom: solid 1px gray;
   padding-bottom: 15px;
@@ -351,11 +333,11 @@ img {
   border-radius: 3px;
   margin: 15px auto;
   font-size: 1.2em;
-  padding:10px 0px 300px 10px;
+  padding: 10px 0px 300px 10px;
 }
 
 #feedback-text::-webkit-input-placeholder {
-   font-size: 1.2em;
+  font-size: 1.2em;
 }
 
 #enter-feedback {
@@ -378,7 +360,7 @@ img {
 }
 
 .quick-rate {
-  width: 25%;
+  width: 40%;
   height: 30px;
   margin-left: auto;
   margin-right: auto;
@@ -511,13 +493,14 @@ img {
 
 .box {
   width: 100%;
-  height: 10px;
+  height: 1px;
 }
 
 .bomb-box {
   height: 40px;
   width: 221px;
   margin: 0px auto;
+  overflow: hidden;
 }
 
 .fa-bomb {
@@ -527,7 +510,7 @@ img {
 }
 
 .fa-bomb:hover:before,
-.fa-bomb:hover ~ .fa-bomb:before  {
+.fa-bomb:hover ~ .fa-bomb:before {
   content: "<i class="fa fa-bomb" aria-hidden="true"></i>";
   position: absolute;
   color: black;
@@ -536,368 +519,188 @@ img {
 
 .fa-bomb:hover ~ .fa-bomb {
   content: "<i class="fa fa-bomb" aria-hidden="true"></i>";
-  position: absolute;;
+  position: absolute;
   color: #D0D0D0;
   cursor: pointer;
 }
 
-#bomb-1 {
+[data-class="bombs"] {
   color: #D0D0D0;
-  padding: 10px;
   top: 230px;
   width: 25px;
+}
+
+[data-class="bombs"]::before {
+  font-size: 2.5em;
+}
+
+#bomb-1 {
   margin-left: 12%;
 }
 
 #bomb-2 {
-  color: #D0D0D0;
-  padding: 10px;
-  top: 230px;
-  width: 25px;
   margin-left: 9%;
 }
 
 #bomb-3 {
-  color: #D0D0D0;
-  padding: 10px;
-  top: 230px;
-  width: 25px;
   margin-left: 6%;
 }
 
 #bomb-4 {
-  color: #D0D0D0;
-  padding: 10px;
-  top: 230px;
-  width: 25px;
   margin-left: 3%;
-}
-
-#bomb-5 {
-  color: #D0D0D0;
-  padding: 10px;
-  top: 230px;
-  width: 25px;
-}
-
-#bomb-1::before {
-  font-size: 2.5em;
-}
-
-#bomb-2::before {
-  font-size: 2.5em;
-}
-
-#bomb-3::before {
-  font-size: 2.5em;
-}
-
-#bomb-4::before {
-  font-size: 2.5em;
-}
-
-#bomb-5::before {
-  font-size: 2.5em;
 }
 
 #bomb-click-1 {
   color: black;
-  padding: 10px;
-  top: 230px;
-  width: 25px;
   margin-left: 12%;
-}
-
-#bomb-click-1::before {
-  font-size: 2.5em;
 }
 
 #bomb-click-2 {
   color: black;
-  padding: 10px;
-  top: 230px;
-  width: 25px;
   margin-left: 9%;
-}
-
-#bomb-click-2::before {
-  font-size: 2.5em;
 }
 
 #bomb-click-3 {
   color: black;
-  padding: 10px;
-  top: 230px;
-  width: 25px;
   margin-left: 6%;
-}
-
-#bomb-click-3::before {
-  font-size: 2.5em;
 }
 
 #bomb-click-4 {
   color: black;
-  padding: 10px;
-  top: 230px;
-  width: 25px;
   margin-left: 3%;
 }
 
-#bomb-click-4::before {
-  font-size: 2.5em;
-}
-
 #bomb-click-5 {
-  position: absolute;
-  padding: 10px;
-  top: 230px;
-  width: 25px;
+  color: black;
 }
 
-#bomb-click-5::before {
-  font-size: 2.5em;
+.stars {
+  width: 17.5%;
+  max-width: 185px;
+  float: right;
+  height: 42px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.stars-sub > .stars {
+  float: left;
+}
+
+.new-bombs {
+  position: absolute;
+  left: 45%;
+  width: 12.5%;
+  max-width: 185px;
+  float: right;
+  height: 42px;
+  background-size: 100%;
 }
 
 .new-feedback > [data-class="one-bomb"] {
-  position: absolute;
-  left: 45%;
-  width: 12.5%;
-  float: right;
-  height: 42px;
   background-image: url("http://i.imgur.com/0yErU6e.png");
-  background-size: 100%;
 }
 
 .new-feedback > [data-class="one-five-bomb"] {
-  position: absolute;
-  left: 45%;
-  width: 12.5%;
-  float: right;
-  height: 42px;
   background-image: url("http://i.imgur.com/um5FYSE.png");
-  background-size: 100%;
 }
 
 .new-feedback > [data-class="two-bomb"] {
-  position: absolute;
-  left: 45%;
-  width: 12.5%;
-  float: right;
-  height: 42px;
   background-image: url("http://i.imgur.com/JE4aItt.png");
-  background-size: 100%;
 }
 
 .new-feedback > [data-class="two-five-bomb"] {
-  position: absolute;
-  left: 45%;
-  width: 12.5%;
-  float: right;
-  height: 42px;
   background-image: url("http://i.imgur.com/AhgQOVC.png");
-  background-size: 100%;
 }
 
 .new-feedback > [data-class="three-bomb"] {
-  position: absolute;
-  left: 45%;
-  width: 12.5%;
-  float: right;
-  height: 42px;
   background-image: url("http://i.imgur.com/NJi9JKa.png");
-  background-size: 100%;
 }
 
 .new-feedback > [data-class="three-five-bomb"] {
-  position: absolute;
-  left: 45%;
-  width: 12.5%;
-  float: right;
-  height: 42px;
   background-image: url("http://i.imgur.com/Jl9H8zO.png");
-  background-size: 100%;
 }
 
 .new-feedback > [data-class="four-bomb"] {
-  position: absolute;
-  left: 45%;
-  width: 12.5%;
-  float: right;
-  height: 42px;
   background-image: url("http://i.imgur.com/LluOzL6.png");
-  background-size: 100%;
 }
 
 .new-feedback > [data-class="four-five-bomb"] {
-  position: absolute;
-  left: 45%;
-  width: 12.5%;
-  float: right;
-  height: 42px;
   background-image: url("http://i.imgur.com/0yErU6e.png");
-  background-size: 100%;
 }
 
 .new-feedback > [data-class="five-bomb"] {
-  position: absolute;
-  left: 45%;
-  width: 12.5%;
-  float: right;
-  height: 42px;
   background-image: url("http://i.imgur.com/9BHXUNP.png");
-  background-size: 100%;
 }
 
 .business > [data-class="one-bomb"] {
-  width: 17.5%;
-  float: right;
-  height: 42px;
-  background-image: url("http://i.imgur.com/0yErU6e.png");
-  background-size: 100%;
+  background-image: url("http://i.imgur.com/xEMGJBL.png");
 }
 
 .business > [data-class="one-five-bomb"] {
-  width: 17.5%;
-  float: right;
-  height: 42px;
-  background-image: url("http://i.imgur.com/um5FYSE.png");
-  background-size: 100%;
+  background-image: url("http://i.imgur.com/pEucoD1.png");
 }
 
 .business > [data-class="two-bomb"] {
-  width: 17.5%;
-  float: right;
-  height: 42px;
-  background-image: url("http://i.imgur.com/JE4aItt.png");
-  background-size: 100%;
+  background-image: url("http://i.imgur.com/blBYDKS.png");
 }
 
 .business > [data-class="two-five-bomb"] {
-  width: 17.5%;
-  float: right;
-  height: 42px;
-  background-image: url("http://i.imgur.com/AhgQOVC.png");
-  background-size: 100%;
+  background-image: url("http://i.imgur.com/SMtJTrq.png");
 }
 
 .business > [data-class="three-bomb"] {
-  width: 17.5%;
-  float: right;
-  height: 42px;
-  background-image: url("http://i.imgur.com/NJi9JKa.png");
-  background-size: 100%;
+  background-image: url("http://i.imgur.com/ygAHoeC.png");
 }
 
 .business > [data-class="three-five-bomb"] {
-  width: 17.5%;
-  float: right;
-  height: 42px;
-  background-image: url("http://i.imgur.com/Jl9H8zO.png");
-  background-size: 100%;
+  background-image: url("http://i.imgur.com/CbiqMNF.png");
 }
 
 .business > [data-class="four-bomb"] {
-  width: 17.5%;
-  float: right;
-  height: 42px;
-  background-image: url("http://i.imgur.com/LluOzL6.png");
-  background-size: 100%;
+  background-image: url("http://i.imgur.com/c6PU5FY.png");
 }
 
 .business > [data-class="four-five-bomb"] {
-  width: 17.5%;
-  float: right;
-  height: 42px;
-  background-image: url("http://i.imgur.com/1poiITQ.png");
-  background-size: 100%;
+  background-image: url("http://i.imgur.com/yvYcju5.png");
 }
 
 .business > [data-class="five-bomb"] {
-  width: 17.5%;
-  float: right;
-  height: 42px;
-  background-image: url("http://i.imgur.com/9BHXUNP.png");
-  background-size: 100%;
+  background-image: url("http://i.imgur.com/CWoq9Iq.png");
 }
 
 [data-class="one-bomb"] {
-  width: 17.5%;
-  float: left;
-  height: 44px;
   background-image: url("http://i.imgur.com/0yErU6e.png");
-  background-size: 100%;
-  background-repeat: no-repeat;
 }
 
 [data-class="one-five-bomb"] {
-  width: 17.5%;
-  float: left;
-  height: 44px;
   background-image: url("http://i.imgur.com/um5FYSE.png");
-  background-size: 100%;
-  background-repeat: no-repeat;
 }
 
 [data-class="two-bomb"] {
-  width: 17.5%;
-  float: left;
-  height: 44px;
   background-image: url("http://i.imgur.com/JE4aItt.png");
-  background-size: 100%;
-  background-repeat: no-repeat;
 }
 
 [data-class="two-five-bomb"] {
-  width: 17.5%;
-  float: left;
-  height: 55px;
   background-image: url("http://i.imgur.com/AhgQOVC.png");
-  background-size: 100%;
-  background-repeat: no-repeat;
 }
 
 [data-class="three-bomb"] {
-  width: 17.5%;
-  float: left;
-  height: 44px;
   background-image: url("http://i.imgur.com/NJi9JKa.png");
-  background-size: 100%;
-  background-repeat: no-repeat;
 }
 
 [data-class="three-five-bomb"] {
-  width: 17.5%;
-  float: left;
-  height: 44px;
   background-image: url("http://i.imgur.com/Jl9H8zO.png");
-  background-size: 100%;
-  background-repeat: no-repeat;
 }
 
 [data-class="four-bomb"] {
-  width: 17.5%;
-  float: left;
-  height: 44px;
   background-image: url("http://i.imgur.com/LluOzL6.png");
-  background-size: 100%;
-  background-repeat: no-repeat;
 }
 
 [data-class="four-five-bomb"] {
-  width: 17.5%;
-  float: left;
-  height: 44px;
   background-image: url("http://i.imgur.com/1poiITQ.png");
-  background-size: 100%;
-  background-repeat: no-repeat;
 }
 
 [data-class="five-bomb"] {
-  width: 17.5%;
-  float: left;
-  height: 44px;
   background-image: url("http://i.imgur.com/9BHXUNP.png");
-  background-size: 100%;
-  background-repeat: no-repeat;
 }
