@@ -5,7 +5,7 @@ body {
 
 .logo {
   width: 200px;
-  margin: 20px auto 5px auto;
+  margin: 20px auto 5px;
 }
 
 h1 {
@@ -28,7 +28,7 @@ h1 {
 
 img {
   width: 200px;
-  margin: 0px auto;
+  margin: 0 auto;
 }
 
 .content {
@@ -38,7 +38,7 @@ img {
 
 .input {
   width: 75%;
-  margin: 30px auto 30px auto;
+  margin: 30px auto;
   padding: 8px;
   position: relative;
   height: 35px;
@@ -49,15 +49,15 @@ img {
 .label {
   padding: 10px;
   font-size: 1em;
-  color: #6E748D;
+  color: #6e748d;
 }
 
 #search {
   position: absolute;
   left: 78%;
   top: 227px;
-  background-color: #CF0814;
-  color: #FFFFFF;
+  background-color: #cf0814;
+  color: #fff;
   padding: 10px;
   border-radius: 4px;
   width: 100px;
@@ -73,29 +73,29 @@ img {
 #place {
   padding: 10px;
   font-size: 1em;
-  color: #6E748D;
+  color: #6e748d;
   margin-left: 11px;
 }
 
 #results {
-  margin: 50px 0px 30px 0px;
+  margin: 50px 0 30px;
   border-bottom: 1px solid gray;
-  padding: 30px 0px 10px 0px;
+  padding: 30px 0 10px;
 }
 
 #list {
-  margin: 30px 0px 30px 0px;
+  margin: 30px 0;
 }
 
 .business {
-  margin: 30px 0px 30px 0px;
-  border: 1px solid #D0D0D0;
+  margin: 30px 0;
+  border: 1px solid #d0d0d0;
   border-radius: 3px;
   padding: 10px;
 }
 
 .business:hover {
-  background-color: #ECECEC;
+  background-color: #ececec;
   cursor: pointer;
 }
 
@@ -137,20 +137,20 @@ img {
 
 #no-match {
   font-size: 1.3em;
-  color: #CF0814;
-  margin: 30px 0px 30px 0px;
+  color: #cf0814;
+  margin: 30px 0;
   padding: 10px;
 }
 
 .title {
-  left: 0px;
+  left: 0;
   font-size: 1.5em;
   font-weight: bold;
-  margin: 15px 0px 15px 0px;
+  margin: 15px 0;
 }
 
 .miles {
-  right: 0px;
+  right: 0;
   float: right;
   font-weight: normal;
   font-size: 1em;
@@ -163,7 +163,7 @@ img {
 }
 
 .cost {
-  right: 0px;
+  right: 0;
   float: right;
 }
 
@@ -173,10 +173,10 @@ img {
   margin: auto;
   height: 50px;
   box-shadow: 3px 3px 20px gray;
-  background-color: #CF0814;
+  background-color: #cf0814;
   border-radius: 3px;
   vertical-align: middle;
-  color: #FFFFFF;
+  color: #fff;
   line-height: 50px;
 }
 
@@ -188,7 +188,7 @@ img {
 .biz-image {
   width: 100%;
   height: 500px;
-  margin: 5px 0px 15px 0px;
+  margin: 5px 0 15px;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -271,22 +271,22 @@ img {
 
 .biz-directions {
   height: 80px;
-  border: solid 1px #D0D0D0;
+  border: solid 1px #d0d0d0;
   border-radius: 3px;
   text-align: left;
   vertical-align: top;
   margin: 15px auto;
-  padding: 10px 0px 0px 5px;
+  padding: 10px 0 0 5px;
 }
 
 .biz-call {
   height: 80px;
-  border: solid 1px #D0D0D0;
+  border: solid 1px #d0d0d0;
   border-radius: 3px;
   text-align: left;
   vertical-align: top;
   margin: 15px auto;
-  padding: 10px 0px 0px 5px;
+  padding: 10px 0 0 5px;
 }
 
 .feedback-box {
@@ -308,7 +308,7 @@ img {
 }
 
 .directions:hover {
-  color: #CF0814;
+  color: #cf0814;
 }
 
 .call {
@@ -317,7 +317,7 @@ img {
 }
 
 .call:hover {
-  color: #CF0814;
+  color: #cf0814;
 }
 
 .write-hidden {
@@ -333,7 +333,7 @@ img {
   border-radius: 3px;
   margin: 15px auto;
   font-size: 1.2em;
-  padding: 10px 0px 300px 10px;
+  padding: 10px 0 300px 10px;
 }
 
 #feedback-text::-webkit-input-placeholder {
@@ -350,11 +350,11 @@ img {
 }
 
 #enter-feedback::-webkit-input-placeholder {
-  font-size: 0.75em;
+  font-size: .75em;
 }
 
 .feedback-content {
-  margin: 20px 0px;
+  margin: 20px 0;
   padding-top: 15px;
   z-index: 10;
 }
@@ -364,7 +364,7 @@ img {
   height: 30px;
   margin-left: auto;
   margin-right: auto;
-  border-bottom: solid 1px #D0D0D0;
+  border-bottom: solid 1px #d0d0d0;
   color: black;
   font-weight: bold;
   margin-bottom: 30px;
@@ -373,8 +373,8 @@ img {
 }
 
 .close {
-  margin: 30px 0px 30px 0px;
-  padding: 20px 0px;
+  margin: 30px 0;
+  padding: 20px 0;
   font-size: 1.2em;
   font-weight: bold;
 }
@@ -383,14 +383,14 @@ img {
   float: right;
   font-size: 1.2em;
   font-weight: bold;
-  color: #D0D0D0;
+  color: #d0d0d0;
 }
 
 .post {
   float: right;
   font-size: 1.2em;
   font-weight: bold;
-  color: #01C004;
+  color: #01c004;
 }
 
 .post:hover {
@@ -399,31 +399,31 @@ img {
 }
 
 .close:hover {
-  color: #CF0814;
+  color: #cf0814;
   cursor: pointer;
 }
 
 .length {
-  color: #CF0814;
+  color: #cf0814;
 }
 
 #feedback-warning {
   width: 100%;
   height: 40px;
-  color: #CF0814;
+  color: #cf0814;
   font-weight: bold;
 }
 
 #length {
   width: 100%;
   height: 40px;
-  color: #CF0814;
+  color: #cf0814;
   font-weight: bold;
 }
 
 .confirm {
   padding-left: 25px;
-  color: #3BBF3E;
+  color: #3bbf3e;
   height: 40px;
   display: inline-block;
   position: absolute;
@@ -437,12 +437,15 @@ img {
   0% {
     opacity: 0;
   }
+
   23% {
     opacity: 1;
   }
+
   84% {
     opacity: 1;
   }
+
   100% {
     opacity: 1;
   }
@@ -450,9 +453,9 @@ img {
 
 .new-feedback {
   height: 65px;
-  border: solid 1px #D0D0D0;
+  border: solid 1px #d0d0d0;
   border-radius: 3px;
-  margin: 0px 0px 30px 0px;
+  margin: 0 0 30px;
   padding: 10px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -461,9 +464,9 @@ img {
 
 .feedback {
   height: 50px;
-  border: solid 1px #CF0814;
+  border: solid 1px #cf0814;
   border-radius: 3px;
-  margin: 30px 0px 30px 0px;
+  margin: 30px 0;
   padding-left: 10px;
   padding-top: 10px;
   -webkit-box-sizing: border-box;
@@ -485,7 +488,7 @@ img {
 }
 
 .stamp {
-  font-size: 0.75em;
+  font-size: .75em;
   float: right;
   padding-top: 5px;
   padding-right: 10px;
@@ -499,7 +502,7 @@ img {
 .bomb-box {
   height: 40px;
   width: 221px;
-  margin: 0px auto;
+  margin: 0 auto;
   overflow: hidden;
 }
 
@@ -509,8 +512,8 @@ img {
   width: 1em;
 }
 
-.fa-bomb:hover:before,
-.fa-bomb:hover ~ .fa-bomb:before {
+.fa-bomb:hover::before,
+.fa-bomb:hover ~ .fa-bomb::before {
   content: "<i class="fa fa-bomb" aria-hidden="true"></i>";
   position: absolute;
   color: black;
@@ -520,12 +523,12 @@ img {
 .fa-bomb:hover ~ .fa-bomb {
   content: "<i class="fa fa-bomb" aria-hidden="true"></i>";
   position: absolute;
-  color: #D0D0D0;
+  color: #d0d0d0;
   cursor: pointer;
 }
 
 [data-class="bombs"] {
-  color: #D0D0D0;
+  color: #d0d0d0;
   top: 230px;
   width: 25px;
 }
