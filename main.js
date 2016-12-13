@@ -211,20 +211,43 @@ var content = document.querySelector(".content")
 
 //FUNCTIONS
 
+/*
+//view switching
+
+function viewSwitch (empty, view) {
+  empty.childNodes.setAttribute('visibility', 'hidden')
+  view.setAttribute('visibility', 'visible')
+  view.childNodes.setAttribute('visibility', 'visible')
+}
+
+document.addEventListener('click', function(e) {
+  var home = document.querySelector('.home')
+  var main = document.querySelectorAll('[data-home]')
+  var content = document.querySelector('.content')
+  if (e.target.className.indexOf('home') !== -1) {
+    console.log(e.target.className.indexOf('home'))
+    viewSwitch(content, main)
+  }
+})
+*/
+
 //loading each object in the businesses array on the search page
 function pageLoad(businesses) {
   for (var i = 0; i < businesses.length; i++) {
     var business = document.createElement("div")
     business.setAttribute("class", "business")
+    business.setAttribute("data-home", "home-page")
     business.setAttribute("id", businesses[i].id)
 
     var businessName = document.createElement("span")
     businessName.setAttribute("class", "name")
+    businessName.setAttribute("data-home", "home-page")
     businessName.setAttribute("id", businesses[i].id)
     businessName.textContent = businesses[i].name
     business.appendChild(businessName)
 
     var rating = document.createElement("span")
+    rating.setAttribute("data-home", "home-page")
     rating.setAttribute("id", businesses[i].id)
     var id = businesses[i].id
     avRating(businesses, id, rating)
@@ -232,30 +255,35 @@ function pageLoad(businesses) {
 
     var distance = document.createElement("span")
     distance.setAttribute("class", "distance")
+    distance.setAttribute("data-home", "home-page")
     distance.setAttribute("id", businesses[i].id)
     distance.textContent = businesses[i].distance
     business.appendChild(distance)
 
     var price = document.createElement("span")
     price.setAttribute("class", "price")
+    price.setAttribute("data-home", "home-page")
     price.setAttribute("id", businesses[i].id)
     price.textContent = businesses[i].price
     business.appendChild(price)
 
     var address = document.createElement("div")
     address.setAttribute("class", "address")
+    address.setAttribute("data-home", "home-page")
     address.setAttribute("id", businesses[i].id)
     address.textContent = businesses[i].address
     business.appendChild(address)
 
     var phone = document.createElement("div")
     phone.setAttribute("class", "phone")
+    phone.setAttribute("data-home", "home-page")
     phone.setAttribute("id", businesses[i].id)
     phone.textContent = businesses[i].phone
     business.appendChild(phone)
 
     var review = document.createElement("div")
     review.setAttribute("class", "review")
+    review.setAttribute("data-home", "home-page")
     review.setAttribute("id", businesses[i].id)
     review.textContent = businesses[i].review
     business.appendChild(review)
