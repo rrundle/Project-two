@@ -1,4 +1,6 @@
-# Project-two
+# Bomb-Eats (Gulp)
+Tech used: 
+Vanilla Javascript
 
 <img src="http://i.imgur.com/iKbN6AL.png">
 
