@@ -1,0 +1,24 @@
+{
+  "name": "bombeats",
+  "version": "1.0.0",
+  "description": "bombeats",
+  "engines": {
+   "node": "6.9.4"
+ },
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rrundle/gulp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rrundle/gulp/issues"
+  },
+  "homepage": "https://github.com/rrundle/gulp#readme"
+}
